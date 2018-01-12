@@ -11,8 +11,12 @@
     <link href="~/Styles/Profile_font.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/scripts/module.js"></script>
+    <script src="~/scripts/NewFolder1/UserDetails.js"></script>
+    
 </head>
-<body>
+<body ng-app="myApp">
     <nav class="navbar nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -111,19 +115,10 @@
         </div>
     </div>*@
     <div>
-        <div class="rela-block container">
+        
             @RenderBody()
-            <div class="rela-block content">
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-                <div class="rela-inline image"></div>
-
-            </div>
-        </div>
+            
+      
     </div>
 
     <div class="rela-block footer">
