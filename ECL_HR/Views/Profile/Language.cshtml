@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Language";
+    Layout = "~/Views/Master/main_Layout.cshtml";
+}
+
+@*<h2>Language</h2>*@
+
+<div class="row">
+    <div class="col-md-14">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Communication</h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
+            <div class="panel-body">
+                @*sample*@
+                <div class="form-horizontal">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-highlight">
+                            <thead>
+                            <th>SNo</th>
+                            <th>Language</th>
+                            <th>Read</th>
+                            <th>Billing Type</th>
+                            <th>Write</th>
+                            <th>Speak</th>
+                            <th>Primary Language</th>
+                            <th>Status</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="form-control" value="Some Long Name Here" /></td>
+                                    <td><input type="text" class="form-control" value="13-Jul-2015" /></td>
+                                    <td><input type="text" class="form-control" value="$12355.12" /></td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Monthly</option>
+                                            <option>Yearly</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="form-control" value="another long value" /></td>
+                                    <td><input type="text" class="form-control" value="some val" /></td>
+                                    <td><input type="text" class="form-control" value="some val" /></td>
+                                    <td><input type="text" class="form-control" value="some val" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 form-group">
+                            <button type="button" class="btn btn-primary">+Add</button>
+
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend>
+                                    Language
+                                </legend>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Email:</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" name="sort" id="sort">
+                                                <option value="1">1</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Read</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Write</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Speak</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Primary Lang</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-primary">Save</button>
+                                    <button class="btn btn-danger">Cancel</button>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

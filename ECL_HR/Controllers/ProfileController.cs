@@ -20,6 +20,11 @@ namespace ECL_HR.Controllers
             //getCommunicationDetails();
             return View();
         }
+        public ActionResult Language()
+        {
+            //getCommunicationDetails();
+            return View();
+        }
 
         public string getCommunicationDetails()
         {
