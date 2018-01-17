@@ -5,138 +5,197 @@
 }
 <div ng-controller="ProfileController" ng-init="initMainView()">
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-            <div class="box-part text-center">
-
-                <i class="fa fa-behance fa-3x" aria-hidden="true"></i>
-
-                <div class="title">
-                    <h3>Behance</h3>
-                </div>
-
-                <div class="text">
-                    <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-                </div>
-
-                <a href="#">Learn More</a>
-
-            </div>
-        </div>	 
-
-        <div class="col-md-14">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Communication</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-2">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="email">House No*</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="pwd">Street/Area1*</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="email">Street/Area2</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="pwd">Country</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="email">State/City*</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="pwd">District/Zip*</label>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-10" for="email">Home Phone</label>
-                            </div>
+        <div class="col-md-6">
+            <fieldset>
+                <legend>present</legend>
+                <button class="btn btn-primary btn_edit" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                </button>
+                
+                
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">House No :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HouseNo}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Street/Area1 :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street1}}</label>
 
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    @*<input type="email" class="form-control" id="email" placeholder="Enter email">*@
-                                    {{ProfileCollection.HouseNo}}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                </div>
-                            </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Street/Area2 :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street2}}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="pwd">City/District :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.City}}/{{ProfileCollection.District}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">State/PIN :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.State}}/{{ProfileCollection.PinCode}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="pwd">Country :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Country}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Home Phone :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HouseNo}}</label>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <legend>Permanent</legend>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="HouseNo">House No :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HouseNo}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Street/Area1 :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street1}}</label>
 
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Street/Area2 :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street2}}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="pwd">City/District :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.City}}/{{ProfileCollection.District}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">State/PIN :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.State}}/{{ProfileCollection.PinCode}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="pwd">Country :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Country}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 bold" for="email">Home Phone :</label>
+                        <div class="col-sm-9">
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HouseNo}}</label>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="House-No" class="control-label col-sm-3 bold">HouseNo</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HouseNo" placeholder="House No">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Street/Area1</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Street/Area1">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="Area2" class="control-label col-sm-3 bold">Street/Area2</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area2" placeholder="Area2">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="City" class="control-label col-sm-3 bold">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="City" placeholder="City">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="District" class="control-label col-sm-3 bold">District</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="District" placeholder="District">
+                                    </div>
+
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="State" class="control-label col-sm-3 bold">State</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="State" placeholder="State">
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="form-group">
+                                    <label for="PinCode" class="control-label col-sm-3 bold">PinCode</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="PinCode" placeholder="PinCode">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Country" class="control-label col-sm-3 bold">Country</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Country" placeholder="Country">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Home-Phone" class="control-label col-sm-3 bold">Home Phone</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HomePhone" placeholder="Home Phone">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

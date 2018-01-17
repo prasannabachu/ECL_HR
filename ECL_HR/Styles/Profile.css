@@ -70,9 +70,9 @@
           transform: translateX(-50%);
 }
 body {
-  font-family: "Roboto";
+  font-family: 'Segoe UI';
   font-size: 16px;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   font-weight: 400;
   line-height: 24px;
   background-color: #f4f4f4;
@@ -621,21 +621,38 @@ body {
 
 
 fieldset {
-    border: 1px solid #337ab7;
+    border: 1px solid #ddd;
     margin: 0px;
     padding: 20px;
+    background:#fff;
 }
 
 legend {
     display: block;
-    border: 1px solid #337ab7;
+    border: 1px solid #ddd;
     padding: 5px 30px;
     margin: 0px;
     width: auto;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 13px;
+    font-weight:500;
+    background:#fff;
 }
 
 label{
     font-weight:normal;
+}
+.form-group{
+    margin-bottom:2px;
+}
+.text-left{
+    text-align:left!important;
+}
+.bold{
+    font-weight:500;
+}
+.btn_edit{
+        position: absolute;
+    right: 30px;
+    top: 30px;
 }

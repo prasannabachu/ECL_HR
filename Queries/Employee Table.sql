@@ -47,3 +47,15 @@ CREATE TABLE [dbo].[Dropdown](
 	[Value] [varchar](5) NULL,
 	[DisplayText] [varchar](250) NULL
 ) ON [PRIMARY]
+
+Drop table EmpLanguage
+
+Create Table EmpLanguage(
+Id int identity(1,1) NOT NULL,
+EmpId int,
+LanguageId int,
+IsRead bit,
+IsWrite bit,
+IsSpeak bit,
+PrimaryLanguage bit
+)

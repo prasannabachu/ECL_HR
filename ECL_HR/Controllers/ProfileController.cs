@@ -25,7 +25,11 @@ namespace ECL_HR.Controllers
             //getCommunicationDetails();
             return View();
         }
-
+        public ActionResult Personal()
+        {
+            //getCommunicationDetails();
+            return View();
+        }
         public string getCommunicationDetails()
         {
             string JSONString = string.Empty;
