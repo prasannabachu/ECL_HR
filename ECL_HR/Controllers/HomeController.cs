@@ -17,7 +17,7 @@ namespace ECL_HR.Controllers
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
         public ActionResult home()
         {
-            getEmployeeData();
+            //getEmployeeData();
             return View();
         }
         public string getEmployeeData()

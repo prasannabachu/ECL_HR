@@ -3,15 +3,141 @@
     ViewBag.Title = "Profile";
     Layout = "~/Views/Master/main_Layout.cshtml";
 }
-<div class="container">
+<div ng-controller="ProfileController" ng-init="initMainView()">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+            <div class="box-part text-center">
+
+                <i class="fa fa-behance fa-3x" aria-hidden="true"></i>
+
+                <div class="title">
+                    <h3>Behance</h3>
+                </div>
+
+                <div class="text">
+                    <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+                </div>
+
+                <a href="#">Learn More</a>
+
+            </div>
+        </div>	 
+
+        <div class="col-md-14">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Communication</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
-                <div class="panel-body">Panel content</div>
+                <div class="panel-body">
+                    <div class="col-sm-2">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="email">House No*</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="pwd">Street/Area1*</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="email">Street/Area2</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="pwd">Country</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="email">State/City*</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="pwd">District/Zip*</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-10" for="email">Home Phone</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    @*<input type="email" class="form-control" id="email" placeholder="Enter email">*@
+                                    {{ProfileCollection.HouseNo}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -892,6 +892,7 @@
     <Content Include="scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\module.js" />
+    <Content Include="scripts\NewFolder1\ProfileDetails.js" />
     <Content Include="scripts\NewFolder1\UserDetails.js" />
     <Content Include="Styles\Profile.css" />
     <Content Include="Styles\Profile_font.css" />
