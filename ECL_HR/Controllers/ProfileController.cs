@@ -30,6 +30,10 @@ namespace ECL_HR.Controllers
             //getCommunicationDetails();
             return View();
         }
+        public ActionResult Family()
+        {
+            return View();
+        }
        
         public string getLanguageDetails()
         {
