@@ -6,7 +6,7 @@
 
 @*<h2>Language</h2>*@
 
-<div class="row">
+<div  ng-controller="ProfileController" class="row" ng-init="initMainView()">
     <div class="col-md-14">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -22,42 +22,40 @@
                             <th>SNo</th>
                             <th>Language</th>
                             <th>Read</th>
-                            <th>Billing Type</th>
                             <th>Write</th>
                             <th>Speak</th>
                             <th>Primary Language</th>
-                            <th>Status</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><input type="text" class="form-control" value="Some Long Name Here" /></td>
-                                    <td><input type="text" class="form-control" value="13-Jul-2015" /></td>
-                                    <td><input type="text" class="form-control" value="$12355.12" /></td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option>Monthly</option>
-                                            <option>Yearly</option>
-                                        </select>
-                                    </td>
-                                    <td><input type="text" class="form-control" value="another long value" /></td>
-                                    <td><input type="text" class="form-control" value="some val" /></td>
-                                    <td><input type="text" class="form-control" value="some val" /></td>
-                                    <td><input type="text" class="form-control" value="some val" /></td>
+                                <tr ng-repeat="lngdata in LanguageCollection ">
+                                    <td>{{lngdata.Id}}</td>
+                                    <td>{{lngdata.Language}}</td>
+                                    <td ng-if="lngdata.IsRead==true">Yes</td>
+                                    <td ng-if="lngdata.IsRead==false">No</td>
+                                   @* <td>{{lngdata.IsWrite}}</td>*@
+                                    <td ng-if="lngdata.IsWrite==true">Yes</td>
+                                    <td ng-if="lngdata.IsWrite==false">No</td>
+                                    @*<td>{{lngdata.IsSpeak}}</td>*@
+                                    <td ng-if="lngdata.IsSpeak==true">Yes</td>
+                                    <td ng-if="lngdata.IsSpeak==false">No</td>
+                                    <td ng-if="lngdata.PrimaryLanguage==true">Yes</td>
+                                    <td ng-if="lngdata.PrimaryLanguage==false">No</td>
+                                    @*<td>{{lngdata.PrimaryLanguage}}</td>*@
                                 </tr>
                             </tbody>
                         </table>
                         <div class="col-md-12 form-group">
-                            <button type="button" class="btn btn-primary">+Add</button>
-
+                            <button type="button" class="btn btn-primary"  ng-click="hideClick()" ng-disabled="buttonVisuble" >+Add</button>
+                           
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" ng-show = "formvisuble">
                             <fieldset>
                                 <legend>
                                     Language
                                 </legend>
                                 <div class="row">
                                     <div class="form-group">
-                                        <label class="control-label col-sm-4" for="email">Email:</label>
+                                        <label class="control-label col-sm-4" >Language:</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="sort" id="sort">
                                                 <option value="1">1</option>

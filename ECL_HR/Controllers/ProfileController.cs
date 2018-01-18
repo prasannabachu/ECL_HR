@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace ECL_HR.Controllers
 {
-    
+
     public class ProfileController : Controller
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
@@ -30,6 +30,22 @@ namespace ECL_HR.Controllers
             //getCommunicationDetails();
             return View();
         }
+       
+        public string getLanguageDetails()
+        {
+            string JSONString = string.Empty;
+
+            string query1 = "select EL.[Id], D.[DisplayText] Language,[IsRead],[IsWrite],[IsSpeak],[PrimaryLanguage] From EmpLanguage EL inner join Dropdown D on D.Id=EL.LanguageId where EmpId=1";
+            using (SqlCommand cmd1 = new SqlCommand(query1, con))
+            {
+                con.Open();
+                SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+                DataTable dt1 = new DataTable();
+                da1.Fill(dt1);
+                JSONString = JsonConvert.SerializeObject(dt1);
+            }
+            return JSONString;
+        }
         public string getCommunicationDetails()
         {
             string JSONString = string.Empty;
@@ -47,3 +63,6 @@ namespace ECL_HR.Controllers
         }
     }
 }
+   
+
+    
