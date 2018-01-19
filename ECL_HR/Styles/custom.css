@@ -1,0 +1,8 @@
+﻿.modal-dialog label {
+    white-space: nowrap;
+    text-align: left !important;
+}
+
+.modal-header, .modal-footer {
+    padding: 10px;
+}
