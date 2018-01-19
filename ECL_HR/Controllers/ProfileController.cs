@@ -34,7 +34,26 @@ namespace ECL_HR.Controllers
         {
             return View();
         }
-       
+       public ActionResult Education()
+        {
+            return View();
+        }
+        public string getLanguageDropdownDetails()
+        {
+            string JSONString = string.Empty;
+            string query3 = "exec USP_GET_DROPDOWN_DETAILS 'Language'";
+            using (SqlCommand cmd2 = new SqlCommand(query3, con))
+            {
+                con.Open();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                DataTable dt2 = new DataTable();
+                da2.Fill(dt2);
+                JSONString = JsonConvert.SerializeObject(dt2);
+
+            }
+            return JSONString;
+        }
+
         public string getLanguageDetails()
         {
             string JSONString = string.Empty;
