@@ -3,6 +3,7 @@
         this.getCommunicationData();
         $scope.buttonVisuble = "true"
         this.getLanguageData();
+this.getLanguageDropDown();
         this.getPersonalDetails();
     };
 
@@ -27,7 +28,16 @@
 
         });
     }
+    $scope.getLanguageDropDown = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getLanguageDropdownDetails'
+        }).then(function (success) {
+            $scope.languageDropdownCollection = success.data;
+        }, function (error) {
 
+        });
+    }
    
     $scope.hideClick = function () {
         $scope.formvisuble = "true";
@@ -61,6 +71,7 @@
         $('#personalModal').modal('hide')
         this.getPersonalDetails();
     }
+
     
 
 }]);
