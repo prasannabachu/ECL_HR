@@ -1,0 +1,240 @@
+﻿
+@{
+    ViewBag.Title = "Education";
+    Layout = "~/Views/Master/main_Layout.cshtml";
+}
+
+@*<h2>Education</h2>*@
+
+<div ng-controller="ProfileController" class="row" ng-init="initMainView()">
+    <div class="col-md-14">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Education Details</h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
+            <div class="panel-body">
+                @*sample*@
+                <div class="form-horizontal">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-highlight">
+                            <thead>
+                            <th>SNo</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Establishment</th>
+                            <th>Institute</th>
+                            <th>Qualification</th>
+                            <th>Country</th>
+                            <th>Marks %</th>
+                            <th>Qual-Gained</th>
+                            <th>EnrollmentNumber</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 form-group">
+                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+                                +Add
+                            </button>
+                        </div>
+                        @*<div class="col-md-12 form-group">
+                                <button type="button" class="btn btn-primary">+Add</button>
+
+                            </div>*@
+                        @*<div class="col-md-6" ng-show="formvisuble">
+                                <fieldset>
+                                    <legend>
+                                        Language
+                                    </legend>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">Language:</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" name="sort" id="sort">
+                                                    <option value="1">1</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Read</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Write</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Speak</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Primary Lang</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button class="btn btn-primary">Save</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </fieldset>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-horizontal">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="House-No" class="control-label col-sm-3 bold">FirstName</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HouseNo" placeholder="FirstName">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">DOB</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="DateOfBirth">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Gender</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Gender">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Occupation</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Occupation">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Country Of Birth</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Country of Birth">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="House-No" class="control-label col-sm-3 bold">Middle Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HouseNo" placeholder="Middle Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Age</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Age">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Relation</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Relation">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Dependent</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Dependent">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Nationality</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Nationality">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="House-No" class="control-label col-sm-3 bold">Last Name*</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HouseNo" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Blood Group</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Blood Group">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Birth Place</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Birth Place">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Mediclaim*</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Mediclaim">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">	Aadhaar No.</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="AadhaarNumber">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

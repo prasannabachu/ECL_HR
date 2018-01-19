@@ -45,7 +45,7 @@
                             </tbody>
                         </table>
                         <div class="col-md-12 form-group">
-                            <button type="button" class="btn btn-primary"  ng-click="hideClick()" ng-disabled="buttonVisuble" >+Add</button>
+                            <button type="button" class="btn btn-primary"  ng-click="hideClick()"  >+Add</button>
                            
                         </div>
                         <div class="col-md-6" ng-show = "formvisuble">
@@ -57,40 +57,69 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-4" >Language:</label>
                                         <div class="col-sm-8">
-                                            <select class="form-control" name="sort" id="sort">
-                                                <option value="1">1</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
+                                            <select class="form-control" name="sort" id="sort" >
+                                                <option ng-repeat="lngDropDowndata in languageDropdownCollection">{{lngDropDowndata.DisplayText}}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-4" for="email">Read</label>
-                                        <div class="col-sm-8">
-                                            <button class="btn btn-default">Yes</button>
-                                            <button class="btn btn-default">No</button>
+                                        <!--Radio butons-->
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-cyan btn-rounded">
+                                                <input type="radio" autocomplete="off"> Yes
+                                            </label>
+
+                                            <label class="btn btn-cyan btn-rounded">
+                                                <input type="radio" autocomplete="off"> No
+                                            </label>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-4" for="email">Write</label>
                                         <div class="col-sm-8">
-                                            <button class="btn btn-default">Yes</button>
-                                            <button class="btn btn-default">No</button>
+                                            <!--Radio butons-->
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> Yes
+                                                </label>
+
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> No
+                                                </label>
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-4" for="email">Speak</label>
                                         <div class="col-sm-8">
-                                            <button class="btn btn-default">Yes</button>
-                                            <button class="btn btn-default">No</button>
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> Yes
+                                                </label>
+
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> No
+                                                </label>
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-4" for="email">Primary Lang</label>
                                         <div class="col-sm-8">
-                                            <button class="btn btn-default">Yes</button>
-                                            <button class="btn btn-default">No</button>
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> Yes
+                                                </label>
+
+                                                <label class="btn btn-cyan btn-rounded">
+                                                    <input type="radio" autocomplete="off"> No
+                                                </label>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

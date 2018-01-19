@@ -3,6 +3,7 @@
         this.getCommunicationData();
         $scope.buttonVisuble = "true"
         this.getLanguageData();
+        this.getLanguageDropDown();
     };
 
     $scope.getCommunicationData = function () {
@@ -26,11 +27,26 @@
 
         });
     }
+    $scope.getLanguageDropDown = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getLanguageDropdownDetails'
+        }).then(function (success) {
+            $scope.languageDropdownCollection = success.data;
+        }, function (error) {
 
+        });
+    }
    
     $scope.hideClick = function () {
         $scope.formvisuble = "true";
         $scope.buttonVisuble = "false";
 
     }
+    $('.btn-toggle').click(function () {
+        $(this).find('.btn').toggleClass('active');  
+    if ($(this).find('.btn-primary').size() > 0) {
+        $(this).find('.btn').toggleClass('btn-primary');
+        }
+    });
 }]);
