@@ -65,8 +65,56 @@ namespace ECL_HR.Controllers
             }
             return JSONString;
         }
-    }
-}
-   
+        public string getPersonalDetails()
+        {
+            string JSONString = string.Empty;
 
-    
+            string query = "select E.id,FullName,DOB,G.id Gender_id,G.DisplayText Gender,B.id BloodGrp_id,B.DisplayText BloodGroup,M.id Marital_id,M.DisplayText MaritalStatus,N.id Natioanality_id,N.DisplayText Nationality,Mobile,PersonalEmail,OfficialEmail from Employee E inner join Dropdown M on M.id=E.MaritalStatus inner join Dropdown G on G.id=E.Gender inner join Dropdown N on N.id=E.Nationality inner join Dropdown B on B.id=E.BloodGroup";
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                JSONString = JsonConvert.SerializeObject(dt);
+            }
+            return JSONString;
+        }
+        [HttpPost]
+        public string savePersonalDetails(PersonalDetailsModel obj)
+        {
+            string JSONString = string.Empty;
+            SqlCommand com = new SqlCommand("USP_SAVE_PERSONALINFO", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@pId", obj.id);
+            com.Parameters.AddWithValue("@pLEGALNAME", obj.FullName);
+            com.Parameters.AddWithValue("@pDOB", obj.DOB);
+            com.Parameters.AddWithValue("@pGENDER", obj.Gender_id);
+            com.Parameters.AddWithValue("@pMarital_Status", obj.Marital_id);
+            com.Parameters.AddWithValue("@pNationality", obj.Natioanality_id);
+            con.Open();
+            com.ExecuteNonQuery();
+            return JSONString;
+        }
+    }
+
+
+}
+public class PersonalDetailsModel
+{
+    public string FullName { set; get; }
+    public string id { set; get; }
+    //public  string FullName;
+    public string DOB { set; get; }
+    public string GENDER { set; get; }
+    public string MaritalStatus { set; get; }
+    public string Nationality { set; get; }
+    public string Gender_id { set; get; }
+    public string Marital_id { set; get; }
+    public string BloodGrp_id { get; set; }
+    public string Natioanality_id { get; set; }
+}
+
+
+
+

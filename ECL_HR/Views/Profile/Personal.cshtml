@@ -1,8 +1,181 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Personal";
     Layout = "~/Views/Master/main_Layout.cshtml";
 }
+<div class="row">
+    <div class="col-md-6" ng-controller="ProfileController" ng-init="initMainView()">
+        <fieldset>
+            <legend>present</legend>
+            <button class="btn btn-primary btn_edit" data-toggle="modal" data-target="#personalModal">
+                <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+            </button>
 
-<h2>Personal</h2>
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold">Legal Name :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.FullName}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold">Nick Name :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.FullName}}</label>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold">Date Of Birth :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.DOB}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold" for="pwd">Gender:</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.Gender}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold">Blood Group :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.BloodGroup}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold" for="pwd">Marital Status :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.MaritalStatus}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3 bold">Citizenship :</label>
+                    <div class="col-sm-9">
+                        <label class="control-label col-sm-8 text-left">{{PersonalDetailsCollection.Nationality}}</label>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="modal fade" id="personalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="House-No" class="control-label col-sm-3 bold">Legal Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" ng-model="PersonalDetailsCollection.FullName" placeholder="House No">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label col-sm-3 bold">Nick Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="Area1" ng-model="PersonalDetailsCollection.FullName" placeholder="Street/Area1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="House-No" class="control-label col-sm-3 bold">DOB</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" ng-model="PersonalDetailsCollection.DOB" placeholder="House No">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Area2" class="control-label col-sm-3 bold">Gender</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" ng-model="PersonalDetailsCollection.Gender_id">
+                                                <option>---Please select---</option> <!-- not selected / blank option -->
+                                                <option ng-value="17">Male</option> <!-- interpolation -->
+                                                <option ng-value="16">Female</option>
+
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="City" class="control-label col-sm-3 bold">Blood Group</label>
+                                        <div class="col-sm-9">
+
+
+                                            <select class="form-control" ng-model="PersonalDetailsCollection.BloodGrp_id">
+                                                <option>---Please select---</option> <!-- not selected / blank option -->
+                                                <option ng-value="18"> O+ </option> <!-- interpolation -->
+                                                <option ng-value="19"> O- </option>
+                                                <option ng-value="20"> AB+ </option>
+                                                <option ng-value="21"> AB- </option>
+                                                <option ng-value="22"> A+ </option>
+                                                <option ng-value="23"> A- </option>
+                                                <option ng-value="24"> B+ </option>
+                                                <option ng-value="25"> B- </option>
+                                            </select>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="District" class="control-label col-sm-3 bold">Marital Status</label>
+                                        <div class="col-sm-9">
+
+                                            <select class="form-control" ng-model="PersonalDetailsCollection.Marital_id">
+                                                <option>---Please select---</option> <!-- not selected / blank option -->
+                                                <option ng-value="1"> D </option> <!-- interpolation -->
+                                                <option ng-value="2"> M </option>
+                                                <option ng-value="3"> O </option>
+                                                <option ng-value="4"> S </option>
+                                                <option ng-value="5"> W </option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="State" class="control-label col-sm-3 bold">Citizenship</label>
+                                        <div class="col-sm-9">
+
+                                            <select class="form-control" ng-model="PersonalDetailsCollection.Natioanality_id">
+                                                <option>---Please select---</option> <!-- not selected / blank option -->
+                                                <option ng-value="6"> American</option> <!-- interpolation -->
+                                                <option ng-value="7"> British</option>
+                                                <option ng-value="8"> Chinese</option> <!-- interpolation -->
+                                                <option ng-value="9"> Filipino</option>
+                                                <option ng-value="10"> French</option> <!-- interpolation -->
+                                                <option ng-value="11">Indian</option>
+                                                <option ng-value="12"> Italian</option> <!-- interpolation -->
+                                                <option ng-value="13"> Japanese</option>
+                                                <option ng-value="14"> Korean</option>
+                                                <option ng-value="15"> Thai</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="SaveChanges(PersonalDetailsCollection)">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 

@@ -3,6 +3,7 @@
         this.getCommunicationData();
         $scope.buttonVisuble = "true"
         this.getLanguageData();
+        this.getPersonalDetails();
     };
 
     $scope.getCommunicationData = function () {
@@ -33,4 +34,34 @@
         $scope.buttonVisuble = "false";
 
     }
+    $scope.getPersonalDetails = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getPersonalDetails',
+        }).then(function (success) {
+            $scope.PersonalDetailsCollection = success.data[0];
+            //$scope.PersonalDetailsCollection.Gender = 1;
+        }, function (error) {
+
+        });
+    }
+    $scope.SaveChanges = function (PersonalDetailsCollectionObj) {
+        $scope.PersonalDetails = PersonalDetailsCollectionObj;
+        $http({
+            method: 'Post',
+            url: '/Profile/savePersonalDetails',
+            data: $scope.PersonalDetails
+        }).then(function (success) {
+         
+          
+            
+        }, function (error) {
+
+        });
+        $('#personalModal').modal('hide')
+        this.getPersonalDetails();
+    }
+    
+
 }]);
+
