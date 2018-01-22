@@ -17,7 +17,7 @@ INSERT INTO [dbo].[Employee]
            ,[Mobile]
            ,[Location])
      VALUES
-           ('1','Test Full Name','M','O+','01/01/1990','Software Engineer','S','01/01/2018','I','P',null,null,'987654321','H')
+           ('1','Test Full Name',17,20,'01/01/1990','Software Engineer',4,'01/01/2018',11,29,null,null,'987654321',30)
 GO
 
 
@@ -40,8 +40,8 @@ INSERT INTO [dbo].[Address]
            ,'1-1/3'
            ,'Hitech City'
            ,'Madhapur'
-           ,'I'
-           ,'TS'
+           ,38
+           ,34
            ,'Hyderabad'
            ,'Rangareddy'
            ,'500081'

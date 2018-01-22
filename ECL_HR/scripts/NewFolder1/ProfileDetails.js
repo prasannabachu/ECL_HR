@@ -1,10 +1,15 @@
 ﻿angular.module('myApp').controller("ProfileController", ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
     $scope.initMainView = function () {
         this.getCommunicationData();
+
         $scope.buttonVisuble = "true"
         this.getLanguageData();
 this.getLanguageDropDown();
         this.getPersonalDetails();
+
+        this.getCountry();
+        this.getStates();
+
     };
 
     $scope.getCommunicationData = function () {
@@ -18,6 +23,7 @@ this.getLanguageDropDown();
 
         });
     };
+
     $scope.getLanguageData = function () {
         $http({
             method: 'GET',
@@ -73,6 +79,34 @@ this.getLanguageDropDown();
     }
 
     
+    $scope.getCountry = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getDropDownListValues',
+            params: { param: 'country' }
+        }).then(function (success) {
+            $scope.countiresCollection = success.data;
+        },function(error){
+
+        });
+    };
+
+    $scope.getStates = function () {
+        
+        $http({
+            method: 'GET',
+            url: '/Profile/getDropDownListValues',
+            //data: _data
+            params: { param: 'state' }
+        }).then(function (success) {
+            $scope.sateCollection = success.data;
+        }, function (error) {
+
+        });
+    };
 
 }]);
+
+
+
 

@@ -6,20 +6,20 @@ CREATE TABLE [dbo].[Employee](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Code] [varchar](10) NULL,
 	[FullName] [varchar](50) NULL,
-	[Gender] [char](1) NULL,
-	[BloodGroup] [char](3) NULL,
+	[Gender] int NULL,
+	[BloodGroup] int NULL,
 	[DOB] [date] NULL,
 	[Designation] [varchar](50) NULL,
-	[MaritalStatus] [char](1) NULL,
+	[MaritalStatus] int NULL,
 	[JoiningDate] [date] NULL,
-	[Nationality] [char](1) NULL,
-	[Status] [char](2) NULL,
+	[Nationality] int NULL,
+	[Status] int NULL,
 	[PersonalEmail] [varchar](50) NULL,
 	[OfficialEmail] [varchar](50) NULL,
 	[Mobile] [varchar](10) NULL,
 	[Manager] [varchar](100) NULL,
 	[BusinessUnit] [varchar](50) NULL,
-	[Location] [char](1) NULL
+	[Location] int NULL
 ) ON [PRIMARY]
 
 
@@ -30,8 +30,8 @@ CREATE TABLE [dbo].[Address](
 	[HouseNo] [varchar](50) NULL,
 	[Street1] [varchar](100) NULL,
 	[Street2] [varchar](100) NULL,
-	[Country] [Varchar](5) NULL,
-	[State] [Varchar](5) NULL,
+	[Country] int NULL,
+	[State] int NULL,
 	[City] [varchar](100) NULL,
 	[District] [varchar](100) NULL,
 	[PinCode] [varchar](10) NULL,
@@ -41,6 +41,9 @@ CREATE TABLE [dbo].[Address](
 
 GO
 
+alter table Address add HomePhone Varchar(10)
+
+GO
 CREATE TABLE [dbo].[Dropdown](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Item] [varchar](50) NULL,
@@ -48,7 +51,7 @@ CREATE TABLE [dbo].[Dropdown](
 	[DisplayText] [varchar](250) NULL
 ) ON [PRIMARY]
 
-Drop table EmpLanguage
+--Drop table EmpLanguage
 
 Create Table EmpLanguage(
 Id int identity(1,1) NOT NULL,

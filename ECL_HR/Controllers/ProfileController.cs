@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -72,9 +73,13 @@ namespace ECL_HR.Controllers
         public string getCommunicationDetails()
         {
             string JSONString = string.Empty;
-
-            string query = "select Type,HouseNo,Street1,Street2,Country,State,City,District,PinCode,EmpId from Address where EmpId=1";
-            using (SqlCommand cmd = new SqlCommand(query, con))
+            StringBuilder query = new StringBuilder();
+            query.Append("select A.Id,Type,HouseNo,Street1,Street2,C.Id CountryId,C.DisplayText Country,S.Id As StateId,S.DisplayText State,City,District,PinCode,EmpId,A.HomePhone ");
+            query.Append("from Address A ");
+            query.Append("inner join Dropdown C on C.Id = A.Country ");
+            query.Append("inner join Dropdown S on S.Id = A.State ");
+            query.Append("where EmpId = 1");
+            using (SqlCommand cmd = new SqlCommand(query.ToString(), con))
             {
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -84,6 +89,7 @@ namespace ECL_HR.Controllers
             }
             return JSONString;
         }
+
         public string getPersonalDetails()
         {
             string JSONString = string.Empty;
@@ -115,6 +121,24 @@ namespace ECL_HR.Controllers
             com.ExecuteNonQuery();
             return JSONString;
         }
+
+
+        public string getDropDownListValues(string param)
+        {
+            string JSONString = string.Empty;
+            string query = "EXEC USP_GET_DROPDOWN_DETAILS '"+ param + "'";
+
+            using (SqlCommand cmd = new SqlCommand(query.ToString(), con))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dtDdlData = new DataTable();
+                da.Fill(dtDdlData);
+                JSONString = JsonConvert.SerializeObject(dtDdlData);
+            }
+            return JSONString;
+        }
+
     }
 
 
