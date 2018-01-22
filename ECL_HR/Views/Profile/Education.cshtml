@@ -1,0 +1,274 @@
+﻿
+@{
+    ViewBag.Title = "Education";
+    Layout = "~/Views/Master/main_Layout.cshtml";
+}
+
+@*<h2>Education</h2>*@
+
+<div ng-controller="ProfileController" class="row" ng-init="initMainView()">
+    <div class="col-md-14">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Family Details</h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
+            <div class="panel-body">
+                @*sample*@
+                <div class="form-horizontal">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-highlight">
+                            <thead>
+                            <th>SNo</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Establishment</th>
+                            <th>Institute</th>
+                            <th>Qualification</th>
+                            <th>Country</th>
+                            <th>Marks%</th>
+                            <th>Highest</th>
+                            <th>EnrollmentNumber</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 form-group">
+                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+                                +Add
+                            </button>
+                        </div>
+                        @*<div class="col-md-12 form-group">
+                                <button type="button" class="btn btn-primary">+Add</button>
+
+                            </div>*@
+                        @*<div class="col-md-6" ng-show="formvisuble">
+                                <fieldset>
+                                    <legend>
+                                        Language
+                                    </legend>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">Language:</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" name="sort" id="sort">
+                                                    <option value="1">1</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Read</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Write</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Speak</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4" for="email">Primary Lang</label>
+                                            <div class="col-sm-8">
+                                                <button class="btn btn-default">Yes</button>
+                                                <button class="btn btn-default">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button class="btn btn-primary">Save</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </fieldset>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dependent Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="House-No" class="control-label col-sm-4 col-md-5 ">FromDate</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="HouseNo" placeholder="FromDate">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="House-No" class="control-label col-sm-4 col-md-5 ">Qualification Type*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="HouseNo" placeholder="Qualification Type*">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="House-No" class="control-label  col-sm-4 col-md-5  ">Establishment*</label>
+                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                            <input type="text" class="form-control" id="HouseNo" placeholder="Establishment">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Country*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Qual Gained*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Qual Gained">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Duration</label>
+                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Duration">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Enrollment number</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Enrollment number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	To Date*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Relation">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Institute/location of training*</label>
+                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Institute/location">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Certificate</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Certificate">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Branch of Study [Major]*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Dependent">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	Highest Qualification*</label>
+                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Highest Qualification">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Branch of Study [Minor]*</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Branch of Study">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Duration Type</label>
+                                        <div class="col-sm-8 col-md-7  nopadding">
+                                            <input type="text" class="form-control" id="Area1" placeholder="Nationality">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-12 col-md-4 ">
+                                    <div class="form-group">
+                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	Aadhaar No.</label>
+                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                            <input type="text" class="form-control" id="Area1" placeholder="AadhaarNumber">
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
