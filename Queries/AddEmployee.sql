@@ -554,3 +554,35 @@ INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
      VALUES('Language','zha','Zhuang; Chuang')
 INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
      VALUES('Language','zul','Zulu')
+
+/*********Occupation*************/
+
+INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Occupation','ser','Service')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Occupation','busi','Business')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Occupation','nw','Not Working')
+
+/*********Relation*************/
+
+      INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','Spo','Spouse')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','son','Son')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','mom','Mother')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','fa','Father')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','bro','Brother')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','sis','Sister')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','nep','Nephew')
+     INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
+     VALUES('Relation','nie','Niece')
+
+INSERT INTO [dbo].[FamilyDetails]([firstname],[middlename],[lastname],[dateofbirth],[age],[bloodgroup_id],[gender_id],[relation_id],[birthplace]
+           ,[occupation_id],[Isdependent],[Ismediclaim],[country_of_birth_id],[nationality_id],[aadhaar])
+     VALUES('Prasanna','VLNK','Bachu','1995-05-24',23,24,17,235,'Guntur',229,1,0,34,11,'450905060504')

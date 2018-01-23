@@ -1,15 +1,18 @@
 ﻿angular.module('myApp').controller("ProfileController", ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
     $scope.initMainView = function () {
-        this.getCommunicationData();
 
+        jQuery.noConflict();
+        $('#statusMsg').hide();
         $scope.buttonVisuble = "true"
+
+        this.getCommunicationData();
         this.getLanguageData();
-this.getLanguageDropDown();
+        this.getLanguageDropDown();
         this.getPersonalDetails();
 
         this.getCountry();
         this.getStates();
-
+        
     };
 
     $scope.getCommunicationData = function () {
@@ -74,7 +77,7 @@ this.getLanguageDropDown();
         }, function (error) {
 
         });
-        $('#personalModal').modal('hide')
+        $('#commModal').modal('hide')
         this.getPersonalDetails();
     }
 
@@ -100,6 +103,27 @@ this.getLanguageDropDown();
             params: { param: 'state' }
         }).then(function (success) {
             $scope.sateCollection = success.data;
+        }, function (error) {
+
+        });
+    };
+
+    $scope.saveCommunicationDetails = function (communicationCollectionObj) {
+        $scope.ProfileCollection = communicationCollectionObj;
+        $http({
+            method: 'POST',
+            url: '/Profile/saveCommunicationDetails',
+            data: $scope.ProfileCollection
+
+        }).then(function (success) {
+            $scope.statusMessage = 'Details Saved Successfully';
+
+            $('#commModal').modal('hide');
+            $('#statusMsg').show();
+
+            setTimeout(function () { $('#statusMsg').hide(); }, 2000);
+            
+            this.getCommunicationData();
         }, function (error) {
 
         });

@@ -70,6 +70,60 @@ namespace ECL_HR.Controllers
             }
             return JSONString;
         }
+       
+
+        public string getPersonalDetails()
+        {
+            string JSONString = string.Empty;
+
+            string query = "select E.id,FullName,DOB,G.id Gender_id,G.DisplayText Gender,B.id BloodGrp_id,B.DisplayText BloodGroup,M.id Marital_id,M.DisplayText MaritalStatus,N.id Natioanality_id,N.DisplayText Nationality,Mobile,PersonalEmail,OfficialEmail from Employee E inner join Dropdown M on M.id=E.MaritalStatus inner join Dropdown G on G.id=E.Gender inner join Dropdown N on N.id=E.Nationality inner join Dropdown B on B.id=E.BloodGroup";
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                JSONString = JsonConvert.SerializeObject(dt);
+            }
+            return JSONString;
+        }
+
+        [HttpPost]
+        public string savePersonalDetails(PersonalDetailsModel obj)
+        {
+            string JSONString = string.Empty;
+            SqlCommand com = new SqlCommand("USP_SAVE_PERSONALINFO", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@pId", obj.id);
+            com.Parameters.AddWithValue("@pLEGALNAME", obj.FullName);
+            com.Parameters.AddWithValue("@pDOB", obj.DOB);
+            com.Parameters.AddWithValue("@pGENDER", obj.Gender_id);
+            com.Parameters.AddWithValue("@pMarital_Status", obj.Marital_id);
+            com.Parameters.AddWithValue("@pNationality", obj.Natioanality_id);
+            con.Open();
+            com.ExecuteNonQuery();
+            return JSONString;
+        }
+
+
+
+        public string getDropDownListValues(string param)
+        {
+            string JSONString = string.Empty;
+            string query = "EXEC USP_GET_DROPDOWN_DETAILS '"+ param + "'";
+
+            using (SqlCommand cmd = new SqlCommand(query.ToString(), con))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dtDdlData = new DataTable();
+                da.Fill(dtDdlData);
+                JSONString = JsonConvert.SerializeObject(dtDdlData);
+            }
+            return JSONString;
+        }
+
+        #region Communication
         public string getCommunicationDetails()
         {
             string JSONString = string.Empty;
@@ -90,57 +144,49 @@ namespace ECL_HR.Controllers
             return JSONString;
         }
 
-        public string getPersonalDetails()
-        {
-            string JSONString = string.Empty;
-
-            string query = "select E.id,FullName,DOB,G.id Gender_id,G.DisplayText Gender,B.id BloodGrp_id,B.DisplayText BloodGroup,M.id Marital_id,M.DisplayText MaritalStatus,N.id Natioanality_id,N.DisplayText Nationality,Mobile,PersonalEmail,OfficialEmail from Employee E inner join Dropdown M on M.id=E.MaritalStatus inner join Dropdown G on G.id=E.Gender inner join Dropdown N on N.id=E.Nationality inner join Dropdown B on B.id=E.BloodGroup";
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                JSONString = JsonConvert.SerializeObject(dt);
-            }
-            return JSONString;
-        }
         [HttpPost]
-        public string savePersonalDetails(PersonalDetailsModel obj)
+        public string saveCommunicationDetails(communicationDetailsModel obj)
         {
             string JSONString = string.Empty;
-            SqlCommand com = new SqlCommand("USP_SAVE_PERSONALINFO", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@pId", obj.id);
-            com.Parameters.AddWithValue("@pLEGALNAME", obj.FullName);
-            com.Parameters.AddWithValue("@pDOB", obj.DOB);
-            com.Parameters.AddWithValue("@pGENDER", obj.Gender_id);
-            com.Parameters.AddWithValue("@pMarital_Status", obj.Marital_id);
-            com.Parameters.AddWithValue("@pNationality", obj.Natioanality_id);
-            con.Open();
-            com.ExecuteNonQuery();
-            return JSONString;
-        }
-
-
-        public string getDropDownListValues(string param)
-        {
-            string JSONString = string.Empty;
-            string query = "EXEC USP_GET_DROPDOWN_DETAILS '"+ param + "'";
-
-            using (SqlCommand cmd = new SqlCommand(query.ToString(), con))
+            using (SqlCommand com = new SqlCommand("USP_SAVE_COMMUNICATIONINFO", con))
             {
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("pId", obj.Id);
+                com.Parameters.AddWithValue("pEmpId", obj.EmpId);
+                com.Parameters.AddWithValue("pHouseNo", ((object)obj.HouseNo) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pStreet1", ((object)obj.Street1) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pStreet2", ((object)obj.Street2) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pCountryId", obj.CountryId);
+                com.Parameters.AddWithValue("pStateId", obj.StateId);
+                com.Parameters.AddWithValue("pCity", ((object)obj.City) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pDistrict", ((object)obj.District) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pPinCode", ((object)obj.PinCode) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pHomePhone", ((object)obj.HomePhone) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pType", obj.Type);
                 con.Open();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dtDdlData = new DataTable();
-                da.Fill(dtDdlData);
-                JSONString = JsonConvert.SerializeObject(dtDdlData);
+                com.ExecuteNonQuery();
+                return JSONString;
             }
-            return JSONString;
         }
-
+        #endregion Communication
     }
+}
 
+
+public class communicationDetailsModel
+{
+    public int Id { get; set; }
+    public int EmpId { get; set; }
+    public string HouseNo { get; set; }
+    public string Street1 { get; set; }
+    public string Street2 { get; set; }
+    public int CountryId { get; set; }
+    public int StateId { get; set; }
+    public string City { get; set; }
+    public string District { get; set; }
+    public string PinCode { get; set; }
+    public string HomePhone { get; set; }
+    public string Type { get; set; }
 
 }
 public class PersonalDetailsModel
@@ -157,7 +203,6 @@ public class PersonalDetailsModel
     public string BloodGrp_id { get; set; }
     public string Natioanality_id { get; set; }
 }
-
 
 
 

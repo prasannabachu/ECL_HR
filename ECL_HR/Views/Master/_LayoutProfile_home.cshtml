@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,8 +18,9 @@
     <script src="~/scripts/module.js"></script>
     <script src="~/scripts/NewFolder1/UserDetails.js"></script>
     @*<script src="~/scripts/NewFolder1/languageDetails.js"></script>*@
+    <script src="~/scripts/NewFolder1/ProfileDetails.js"></script>
 
-    @*<script src="~/scripts/NewFolder1/ProfileDetails.js"></script>*@
+
 </head>
 <body ng-app="myApp">
 
@@ -58,30 +59,30 @@
     </nav>
 
 
-    <div class="overlay">
-        <div class="abs-center overlay-card">
-            <div class="close">X</div>
-            <div class="floated overlay-image">
-                <div class="abs-center post-image"></div>
-            </div>
-            <div class="floated overlay-desc">
-                <div class="rela-block desc-title"></div>
-                <div class="rela-block desc-author"></div>
-                <div class="rela-block desc-desc"></div>
+    <div class="container-fluid" style="margin-top:50px;">
+        <div class="row">
+
+            <h1>Profile</h1>
+            <div role="tabpanel">
+                <div class="col-sm-3 side-nav">
+                    <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
+                        <li role="presentation" class="brand-nav active"><a href="/Profile/Profile">Communication</a></li>
+                        <li role="presentation" class="brand-nav"><a href="/Profile/Personal">Personal</a></li>
+                        <li role="presentation" class="brand-nav"><a href="/Profile/Family">Family / Dependent Details</a></li>
+                        <li role="presentation" class="brand-nav"><a href="/Profile/Language">Language</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
-        
-            @RenderBody()
-            
-      
-    </div>
-
-    <div class="footer col-md-12">
-        @*<p>FOOTER</p>*@
-        <p>Classic deluxe custom designer luxury prestige high-quality premium select gourmet pocket pencil sharpener.</p>
-    </div>
+        </div>
+        <div class="footer col-md-12">
+            @*<p>FOOTER</p>*@
+            <p>Classic deluxe custom designer luxury prestige high-quality premium select gourmet pocket pencil sharpener.</p>
+        </div>
 </body>
 </html>

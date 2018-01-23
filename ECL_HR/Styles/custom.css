@@ -6,3 +6,10 @@
 .modal-header, .modal-footer {
     padding: 10px;
 }
+
+.alert-done{
+    position: fixed;
+    top: 60px;
+    right: 0;
+    min-width: 240px;
+}

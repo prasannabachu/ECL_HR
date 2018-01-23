@@ -62,3 +62,46 @@ IsWrite bit,
 IsSpeak bit,
 PrimaryLanguage bit
 )
+
+/**********Create Family Detail table************/
+create table FamilyDetails(
+Id int identity(1,1) NOT NULL,
+firstname varchar(50),
+middlename varchar(50),
+lastname varchar(50),
+dateofbirth datetime,
+age int,
+bloodgroup_id int,
+gender_id int,
+relation_id int,
+birthplace varchar(20),
+occupation_id int,
+Isdependent bit,
+Ismediclaim bit,
+country_of_birth_id int,
+nationality_id int,
+aadhaar Varchar(12)
+)
+
+ALTER TABLE familydetails ADD EmpId int
+
+CREATE PROC USP_GET_FAMILYDETAILS (
+@pEMPID INT
+)
+AS 
+BEGIN
+	select fd.firstname,fd.middlename,fd.lastname,fd.Isdependent,fd.Ismediclaim
+	,fd.aadhaar,fd.age,fd.birthplace,fd.dateofbirth
+	,fd.bloodgroup_id,bg.DisplayText bloodgroup
+	,fd.gender_id,g.DisplayText gender
+	,re.DisplayText relation,fd.relation_id,oc.DisplayText occupation,fd.occupation_id
+	,cb.DisplayText country_of_birth,fd.country_of_birth_id,fd.nationality_id,na.DisplayText nationality 
+	from FamilyDetails fd with (nolock)
+	left join Dropdown bg with (nolock) on bg.Id=fd.bloodgroup_id
+	left join Dropdown g  with (nolock) on g.Id = fd.gender_id
+	left join Dropdown re  with (nolock) on re.Id = fd.relation_id
+	left join Dropdown oc  with (nolock) on oc.Id = fd.occupation_id
+	left join Dropdown cb  with (nolock) on cb.Id = fd.country_of_birth_id
+	left join Dropdown na  with (nolock)  on na.Id = fd.nationality_id
+	WHERE FD.EMPID=@pEMPID
+END
