@@ -19,7 +19,6 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-highlight">
                             <thead>
-                            <th>SNo</th>
                             <th>Name</th>
                             <th>Relation</th>
                             <th>Gender</th>
@@ -31,17 +30,16 @@
                             <th>AadharNumber</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
+                                <tr ng-repeat="familydetails in familyDetailsGridCollection">
+                                    <td>{{familydetails.firstname + familydetails.lastname }}</td>
+                                    <td>{{familydetails.relation}}</td>
+                                    <td>{{familydetails.gender}}</td>
+                                    <td>{{familydetails.dateofbirth}}</td>
+                                    <td>{{familydetails.age}}</td>
+                                    <td>{{familydetails.bloodgroup}}</td>
+                                    <td>{{familydetails.occupation}}</td>
+                                    <td>{{familydetails.Ismediclaim}}</td>
+                                    <td>{{familydetails.aadhaar}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -133,7 +131,7 @@
                                     <div class="form-group">
                                         <label for="House-No" class="control-label col-sm-4 col-md-5 ">FirstName</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="HouseNo" placeholder="FirstName">
+                                            <input type="text" class="form-control" ng-model="familydata.firstname" placeholder="FirstName">
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +139,7 @@
                                     <div class="form-group">
                                         <label for="House-No" class="control-label col-sm-4 col-md-5 ">Middle Name</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="HouseNo" placeholder="Middle Name">
+                                            <input type="text" class="form-control" ng-model="familydata.middlename" placeholder="Middle Name">
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +147,7 @@
                                     <div class="form-group">
                                         <label for="House-No" class="control-label  col-sm-4 col-md-5  ">Last Name*</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" id="HouseNo" placeholder="Last Name">
+                                            <input type="text" class="form-control" ng-model="familydata.lastname"   placeholder="Last Name">
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +157,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">DOB</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="DateOfBirth">
+                                            <input type="text" class="form-control" ng-model="familydata.dateofbirth"  placeholder="DateOfBirth">
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +165,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Age</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Age">
+                                            <input type="text" class="form-control"  ng-model="familydata.age"  placeholder="Age">
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +173,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Blood Group</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Blood Group">
+                                            <input type="text" class="form-control" ng-model="familydata.bloodgroup"  placeholder="Blood Group">
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +183,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Gender</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Gender">
+                                            <input type="text" class="form-control"  ng-model="familydata.gender"  placeholder="Gender">
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +191,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Relation</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Relation">
+                                            <input type="text" class="form-control" ng-model="familydata.relation"  placeholder="Relation">
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +199,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Birth Place</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Birth Place">
+                                            <input type="text" class="form-control" ng-model="familydata.birthplace"  placeholder="Birth Place">
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +209,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Occupation</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Occupation">
+                                            <input type="text" class="form-control" ng-model="familydata.occupation"  placeholder="Occupation">
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +217,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Dependent</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Dependent">
+                                            <input type="text" class="form-control" ng-model="familydata.dependent" placeholder="Dependent">
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +225,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Mediclaim*</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Mediclaim">
+                                            <input type="text" class="form-control" ng-model="familydata.mediclaim"  placeholder="Mediclaim">
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +235,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Country Of Birth</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Country of Birth">
+                                            <input type="text" class="form-control"  ng-model="familydata.countryofbirth"  placeholder="Country of Birth">
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +243,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Nationality</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" id="Area1" placeholder="Nationality">
+                                            <input type="text" class="form-control" ng-model="familydata.nationality"  placeholder="Nationality">
                                         </div>
                                     </div>
                                 </div>
@@ -253,7 +251,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	Aadhaar No.</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" id="Area1" placeholder="AadhaarNumber">
+                                            <input type="text" class="form-control" ng-model="familydata.aadharnumber" placeholder="AadhaarNumber">
                                         </div>
                                     </div>
                                 </div>
