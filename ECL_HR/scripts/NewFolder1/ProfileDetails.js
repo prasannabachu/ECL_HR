@@ -13,7 +13,11 @@
 
         this.getCountry();
         this.getStates();
+
         this.getPermanentStates();
+
+        this.familyDetailsGridData();
+
     };
 
     $scope.getPresentAddressData = function () {
@@ -94,7 +98,19 @@
         $('#commModal').modal('hide')
         this.getPersonalDetails();
     }
+    $scope.saveFamilyDetails = function (familydatas) {
+        $scope.familyDetails = familydatas;
+        $http({
+            method: 'post',
+            url: '/profile/saveFamilyDetailsTables',
+            data: $scope.familyDetails
+        }).then(function (success) {
 
+
+
+        }, function (error) {
+        });
+    }
     
     $scope.getCountry = function () {
         $http({
@@ -106,7 +122,20 @@
         },function(error){
 
         });
-    };
+        };
+    $scope.familyDetailsGridData = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getFamilyGridDetails',
+
+        }).then(function (success) {
+            $scope.familyDetailsGridCollection = success.data
+
+
+        }, function (error) {
+
+        });
+    }
 
     $scope.getStates = function () {
         
@@ -120,7 +149,8 @@
         }, function (error) {
 
         });
-    };
+    }
+
 
     $scope.getPermanentStates = function () {
 

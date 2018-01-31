@@ -55,7 +55,21 @@ namespace ECL_HR.Controllers
             }
             return JSONString;
         }
+        public string getFamilyGridDetails()
+        {
+            string JSONString = string.Empty;
+            string query3 = "USP_GET_FAMILYDETAILS 1";
+            using (SqlCommand cmd2 = new SqlCommand(query3, con))
+            {
+                con.Open();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                DataTable dt2 = new DataTable();
+                da2.Fill(dt2);
+                JSONString = JsonConvert.SerializeObject(dt2);
 
+            }
+            return JSONString;
+        }
         public string getLanguageDetails()
         {
             string JSONString = string.Empty;
