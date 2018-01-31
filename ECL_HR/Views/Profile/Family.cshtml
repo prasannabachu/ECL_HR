@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Family";
     Layout = "~/Views/Master/_LayoutProfile_home.cshtml";
 }
@@ -10,8 +9,9 @@
     <div class="col-md-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Family Details <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span></h3>
-       </div>
+                <h3 class="panel-title">Family Details</h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
             <div class="panel-body">
                 @*sample*@
                 <div class="form-horizontal">
@@ -43,67 +43,67 @@
                             </tbody>
                         </table>
                         <div class="col-md-12 form-group">
-                            <button type="button" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add
+                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+                                +Add
                             </button>
                         </div>
-                            @*<div class="col-md-12 form-group">
-                                <button type="button" class="btn btn-primary">+Add</button>
+                        @*<div class="col-md-12 form-group">
+                            <button type="button" class="btn btn-primary">+Add</button>
 
-                            </div>*@
-                            @*<div class="col-md-6" ng-show="formvisuble">
-                <fieldset>
-                    <legend>
-                        Language
-                    </legend>
-                    <div class="row">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4">Language:</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" name="sort" id="sort">
-                                    <option value="1">1</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="email">Read</label>
-                            <div class="col-sm-8">
-                                <button class="btn btn-default">Yes</button>
-                                <button class="btn btn-default">No</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="email">Write</label>
-                            <div class="col-sm-8">
-                                <button class="btn btn-default">Yes</button>
-                                <button class="btn btn-default">No</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="email">Speak</label>
-                            <div class="col-sm-8">
-                                <button class="btn btn-default">Yes</button>
-                                <button class="btn btn-default">No</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="email">Primary Lang</label>
-                            <div class="col-sm-8">
-                                <button class="btn btn-default">Yes</button>
-                                <button class="btn btn-default">No</button>
-                            </div>
-                        </div>
+                        </div>*@
+                        @*<div class="col-md-6" ng-show="formvisuble">
+                            <fieldset>
+                                <legend>
+                                    Language
+                                </legend>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4">Language:</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" name="sort" id="sort">
+                                                <option value="1">1</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Read</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Write</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Speak</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4" for="email">Primary Lang</label>
+                                        <div class="col-sm-8">
+                                            <button class="btn btn-default">Yes</button>
+                                            <button class="btn btn-default">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-primary">Save</button>
+                                    <button class="btn btn-danger">Cancel</button>
+                                </div>
+                            </fieldset>
+                        </div>*@
                     </div>
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-primary">Save</button>
-                        <button class="btn btn-danger">Cancel</button>
-                    </div>
-                </fieldset>
-            </div>*@
-                        </div>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
                                     <div class="form-group">
                                         <label for="House-No" class="control-label  col-sm-4 col-md-5  ">Last Name*</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.lastname"   placeholder="Last Name">
+                                            <input type="text" class="form-control" ng-model="familydata.lastname" placeholder="Last Name">
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">DOB</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.dateofbirth"  placeholder="DateOfBirth">
+                                            <input type="text" class="form-control" ng-model="familydata.dateofbirth" placeholder="DateOfBirth">
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Age</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control"  ng-model="familydata.age"  placeholder="Age">
+                                            <input type="text" class="form-control" ng-model="familydata.age" placeholder="Age">
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Blood Group</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.bloodgroup"  placeholder="Blood Group">
+                                            <input type="text" class="form-control" ng-model="familydata.bloodgroup" placeholder="Blood Group">
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Gender</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control"  ng-model="familydata.gender"  placeholder="Gender">
+                                            <input type="text" class="form-control" ng-model="familydata.gender" placeholder="Gender">
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Relation</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.relation"  placeholder="Relation">
+                                            <input type="text" class="form-control" ng-model="familydata.relation" placeholder="Relation">
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Birth Place</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.birthplace"  placeholder="Birth Place">
+                                            <input type="text" class="form-control" ng-model="familydata.birthplace" placeholder="Birth Place">
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Occupation</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.occupation"  placeholder="Occupation">
+                                            <input type="text" class="form-control" ng-model="familydata.occupation" placeholder="Occupation">
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +224,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Mediclaim*</label>
                                         <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.mediclaim"  placeholder="Mediclaim">
+                                            <input type="text" class="form-control" ng-model="familydata.mediclaim" placeholder="Mediclaim">
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Country Of Birth</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control"  ng-model="familydata.countryofbirth"  placeholder="Country of Birth">
+                                            <input type="text" class="form-control" ng-model="familydata.countryofbirth" placeholder="Country of Birth">
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@
                                     <div class="form-group">
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Nationality</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.nationality"  placeholder="Nationality">
+                                            <input type="text" class="form-control" ng-model="familydata.nationality" placeholder="Nationality">
                                         </div>
                                     </div>
                                 </div>
@@ -255,7 +255,7 @@
                                     </div>
                                 </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
 

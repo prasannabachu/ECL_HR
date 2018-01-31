@@ -12,13 +12,9 @@
         this.getPersonalDetails();
 
         this.getCountry();
-        this.getStates();
-
+        this.getStates();        
         this.getPermanentStates();
-
-        this.familyDetailsGridData();
-
-    };
+        this.familyDetailsGridData();    };
 
     $scope.getPresentAddressData = function () {
 
@@ -150,7 +146,6 @@
 
         });
     }
-
 
     $scope.getPermanentStates = function () {
 
