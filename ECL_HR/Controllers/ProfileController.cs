@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ECL_HR.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -106,7 +107,6 @@ namespace ECL_HR.Controllers
         }
 
 
-
         public string getDropDownListValues(string param)
         {
             string JSONString = string.Empty;
@@ -124,17 +124,32 @@ namespace ECL_HR.Controllers
         }
 
         #region Communication
-        public string getCommunicationDetails()
+
+        public string getCommunicationDetails(string Type)
         {
             string JSONString = string.Empty;
-            StringBuilder query = new StringBuilder();
-            query.Append("select A.Id,Type,HouseNo,Street1,Street2,C.Id CountryId,C.DisplayText Country,S.Id As StateId,S.DisplayText State,City,District,PinCode,EmpId,A.HomePhone ");
-            query.Append("from Address A ");
-            query.Append("inner join Dropdown C on C.Id = A.Country ");
-            query.Append("inner join Dropdown S on S.Id = A.State ");
-            query.Append("where EmpId = 1");
-            using (SqlCommand cmd = new SqlCommand(query.ToString(), con))
+            
+            using (SqlCommand cmd = new SqlCommand("USP_GET_COMMUNICATIONDETAILS", con))
             {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("pEmpID", 1);
+                cmd.Parameters.AddWithValue("pType", Type);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                JSONString = JsonConvert.SerializeObject(dt);
+            }
+            return JSONString;
+        }
+        public string getStatesforselectedCountry(int selectedvalue)
+        {
+            string JSONString = string.Empty;
+            using (SqlCommand cmd = new SqlCommand("USP_GET_DROPDOWN_DETAILS", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("pITEM", "State");
+                cmd.Parameters.AddWithValue("pParentID", selectedvalue);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -145,14 +160,23 @@ namespace ECL_HR.Controllers
         }
 
         [HttpPost]
-        public string saveCommunicationDetails(communicationDetailsModel obj)
+        public string saveCommunicationDetails(communicationDetailsModel obj,string Type)
         {
+            int empID;
             string JSONString = string.Empty;
             using (SqlCommand com = new SqlCommand("USP_SAVE_COMMUNICATIONINFO", con))
             {
+                if (obj.EmpId == 0)
+                {
+                    empID = 1;
+                }
+                else
+                {
+                    empID = obj.EmpId;
+                }
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("pId", obj.Id);
-                com.Parameters.AddWithValue("pEmpId", obj.EmpId);
+                com.Parameters.AddWithValue("pEmpId", empID);
                 com.Parameters.AddWithValue("pHouseNo", ((object)obj.HouseNo) ?? DBNull.Value);
                 com.Parameters.AddWithValue("pStreet1", ((object)obj.Street1) ?? DBNull.Value);
                 com.Parameters.AddWithValue("pStreet2", ((object)obj.Street2) ?? DBNull.Value);
@@ -162,47 +186,17 @@ namespace ECL_HR.Controllers
                 com.Parameters.AddWithValue("pDistrict", ((object)obj.District) ?? DBNull.Value);
                 com.Parameters.AddWithValue("pPinCode", ((object)obj.PinCode) ?? DBNull.Value);
                 com.Parameters.AddWithValue("pHomePhone", ((object)obj.HomePhone) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pType", obj.Type);
+                com.Parameters.AddWithValue("pType", ((object)obj.Type) ?? Type);
                 con.Open();
                 com.ExecuteNonQuery();
                 return JSONString;
             }
         }
+
         #endregion Communication
     }
 }
 
-
-public class communicationDetailsModel
-{
-    public int Id { get; set; }
-    public int EmpId { get; set; }
-    public string HouseNo { get; set; }
-    public string Street1 { get; set; }
-    public string Street2 { get; set; }
-    public int CountryId { get; set; }
-    public int StateId { get; set; }
-    public string City { get; set; }
-    public string District { get; set; }
-    public string PinCode { get; set; }
-    public string HomePhone { get; set; }
-    public string Type { get; set; }
-
-}
-public class PersonalDetailsModel
-{
-    public string FullName { set; get; }
-    public string id { set; get; }
-    //public  string FullName;
-    public string DOB { set; get; }
-    public string GENDER { set; get; }
-    public string MaritalStatus { set; get; }
-    public string Nationality { set; get; }
-    public string Gender_id { set; get; }
-    public string Marital_id { set; get; }
-    public string BloodGrp_id { get; set; }
-    public string Natioanality_id { get; set; }
-}
 
 
 

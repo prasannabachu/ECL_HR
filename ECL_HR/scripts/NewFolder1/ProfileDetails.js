@@ -5,27 +5,42 @@
         $('#statusMsg').hide();
         $scope.buttonVisuble = "true"
 
-        this.getCommunicationData();
+        this.getPresentAddressData();
+        this.getPermanentAddressData();
         this.getLanguageData();
         this.getLanguageDropDown();
         this.getPersonalDetails();
 
         this.getCountry();
         this.getStates();
-        
+        this.getPermanentStates();
     };
 
-    $scope.getCommunicationData = function () {
+    $scope.getPresentAddressData = function () {
 
         $http({
             method: 'GET',
-            url: '/Profile/getCommunicationDetails'
+            url: '/Profile/getCommunicationDetails',
+            params: { Type: 'PR' }
         }).then(function (success) {
             $scope.ProfileCollection = success.data[0];
         }, function (error) {
 
         });
     };
+
+    $scope.getPermanentAddressData = function () {
+        $http({
+            method: 'GET',
+            url: '/Profile/getCommunicationDetails',
+            params:{ Type:'PE' }
+        }).then(function (success) {
+            $scope.PermanentCollection = success.data[0];
+        }, function (error) {
+
+        });
+    };
+
 
     $scope.getLanguageData = function () {
         $http({
@@ -54,6 +69,7 @@
 
     }
     $scope.getPersonalDetails = function () {
+        $scope.PersonalDetailsCollection = [];
         $http({
             method: 'GET',
             url: '/Profile/getPersonalDetails',
@@ -71,8 +87,6 @@
             url: '/Profile/savePersonalDetails',
             data: $scope.PersonalDetails
         }).then(function (success) {
-         
-          
             
         }, function (error) {
 
@@ -108,27 +122,88 @@
         });
     };
 
-    $scope.saveCommunicationDetails = function (communicationCollectionObj) {
-        $scope.ProfileCollection = communicationCollectionObj;
+    $scope.getPermanentStates = function () {
+
+        $http({
+            method: 'GET',
+            url: '/Profile/getDropDownListValues',
+            //data: _data
+            params: { param: 'state' }
+        }).then(function (success) {
+            $scope.permanentSateCollection = success.data;
+        }, function (error) {
+
+        });
+    };
+    $scope.savePermanaentAddressDetails = function (PermanaentCollectionObj) {
+        $scope.PermanentCollection = PermanaentCollectionObj;
         $http({
             method: 'POST',
             url: '/Profile/saveCommunicationDetails',
-            data: $scope.ProfileCollection
+            data: $scope.PermanentCollection,
+            params: { Type: 'PE' }
 
         }).then(function (success) {
             $scope.statusMessage = 'Details Saved Successfully';
-
-            $('#commModal').modal('hide');
             $('#statusMsg').show();
-
             setTimeout(function () { $('#statusMsg').hide(); }, 2000);
+            $('#permanentModal').modal('hide')
             
-            this.getCommunicationData();
+        }, function (error) {
+
+        });
+        this.getPermanentAddressData();
+    };
+
+    $scope.savePresentAddressDetails = function (PresentCollectionObj) {
+       
+        $scope.ProfileCollection = PresentCollectionObj;
+       
+        $http({
+            method: 'POST',
+            url: '/Profile/saveCommunicationDetails',
+            data: $scope.ProfileCollection,
+            params: { Type: 'PR' }
+
+        }).then(function (success) {
+            $scope.statusMessage = 'Details Saved Successfully';
+            $('#statusMsg').show();
+            setTimeout(function () { $('#statusMsg').hide(); }, 2000);
+            $('#commModal').modal('hide');
+
+        }, function (error) {
+
+        });
+        this.getPresentAddressData();
+    };
+
+    $scope.GetSelectedStates = function (selectedItem) {
+
+        $scope.sateCollection=
+        $http({
+            method: 'GET',
+            url: '/Profile/getStatesforselectedCountry',
+            params: { selectedvalue: selectedItem }
+        }).then(function (success) {
+            $scope.sateCollection = success.data;
         }, function (error) {
 
         });
     };
 
+    $scope.GetPermanentSelectedStates = function (selectedItem) {
+
+        $scope.sateCollection =
+        $http({
+            method: 'GET',
+            url: '/Profile/getStatesforselectedCountry',
+            params: { selectedvalue: selectedItem }
+        }).then(function (success) {
+            $scope.permanentSateCollection = success.data;
+        }, function (error) {
+
+        });
+    };
 }]);
 
 

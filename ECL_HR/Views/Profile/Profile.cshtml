@@ -5,8 +5,6 @@
 }
 
 
-
-
 <div ng-controller="ProfileController" ng-init="initMainView()">
     <div class="row">
         <div id="statusMsg" class="alert alert-success alert-dismissible alert-done" role="alert">
@@ -19,7 +17,6 @@
                 <button class="btn btn-primary btn_edit" data-toggle="modal" data-target="#commModal">
                     <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                 </button>
-
 
                 <div class="form-horizontal">
                     <div class="form-group">
@@ -45,23 +42,23 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3 bold" for="pwd">City/District :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.City}}/{{ProfileCollection.District}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.City}} / {{ProfileCollection.District}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="email">State/PIN :</label>
+                        <label class="control-label col-sm-3 bold" for="email">State/Country :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.State}}/{{ProfileCollection.PinCode}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.State}} / {{ProfileCollection.Country}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="pwd">Country :</label>
+                        <label class="control-label col-sm-3 bold" for="pwd">PIN :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Country}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.PinCode}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="email">Home Phone :</label>
+                        <label class="control-label col-sm-3 bold" for="email">Phone :</label>
                         <div class="col-sm-9">
                             <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HomePhone}}</label>
                         </div>
@@ -71,13 +68,10 @@
             </fieldset>
         </div>
         <div class="col-md-6">
-            <div>
-                <input type="checkbox" /> Is same as Present address
-            </div>
-
+           
             <fieldset>
                 <legend>Permanent</legend>
-                <button class="btn btn-primary btn_edit" data-toggle="modal" data-target="#commModal">
+                <button class="btn btn-primary btn_edit" data-toggle="modal" data-target="#permanentModal">
                     <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                 </button>
                
@@ -86,45 +80,45 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3 bold" for="HouseNo">House No :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HouseNo}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.HouseNo}}</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3 bold" for="email">Street/Area1 :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street1}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.Street1}}</label>
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3 bold" for="email">Street/Area2 :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Street2}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.Street2}}</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-3 bold" for="pwd">City/District :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.City}}/{{ProfileCollection.District}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.City}} / {{PermanentCollection.District}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="email">State/PIN :</label>
+                        <label class="control-label col-sm-3 bold" for="email">State/Country :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.State}}/{{ProfileCollection.PinCode}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.State}} / {{PermanentCollection.Country}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="pwd">Country :</label>
+                        <label class="control-label col-sm-3 bold" for="pwd">PIN :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.Country}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.PinCode}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3 bold" for="email">Home Phone :</label>
+                        <label class="control-label col-sm-3 bold" for="email">Phone :</label>
                         <div class="col-sm-9">
-                            <label class="control-label col-sm-8 text-left" for="email">{{ProfileCollection.HomePhone}}</label>
+                            <label class="control-label col-sm-8 text-left" for="email">{{PermanentCollection.HomePhone}}</label>
                         </div>
                     </div>
                 </div>
@@ -180,14 +174,7 @@
                                     </div>
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="State" class="control-label col-sm-3 bold">State</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control" ng-model="ProfileCollection.StateId">
-                                            <option ng-repeat="state in sateCollection" ng-value="state.Id">{{state.DisplayText}}</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="PinCode" class="control-label col-sm-3 bold">PinCode</label>
                                     <div class="col-sm-9">
@@ -197,8 +184,16 @@
                                 <div class="form-group">
                                     <label for="Country" class="control-label col-sm-3 bold">Country</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" ng-model="ProfileCollection.CountryId">
+                                        <select class="form-control" ng-model="ProfileCollection.CountryId" ng-change="GetSelectedStates(ProfileCollection.CountryId)">
                                             <option ng-repeat="country in countiresCollection" ng-value="country.Id">{{country.DisplayText}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="State" class="control-label col-sm-3 bold">State</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" ng-model="ProfileCollection.StateId">
+                                            <option ng-repeat="state in sateCollection" ng-value="state.Id">{{state.DisplayText}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -208,7 +203,12 @@
                                         <input type="text" class="form-control" id="HomePhone" placeholder="Home Phone" ng-model="ProfileCollection.HomePhone">
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="Home-Phone" class="control-label col-sm-3 bold"></label>
+                                    <div class="col-sm-9">
+                                        <input type="checkbox" id="permanent"> Permanent Address is same as present Address
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -218,7 +218,96 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="saveCommunicationDetails(ProfileCollection)">Save changes</button>
+                    <button type="button" class="btn btn-primary" ng-click="savePresentAddressDetails(ProfileCollection)">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="permanentModal" tabindex="-1" role="dialog" aria-labelledby="permanentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="permanentModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="House-No" class="control-label col-sm-3 bold">HouseNo</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HouseNo" placeholder="House No" ng-model="PermanentCollection.HouseNo">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area1" class="control-label col-sm-3 bold">Street/Area1</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area1" placeholder="Street/Area1" ng-model="PermanentCollection.Street1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Area2" class="control-label col-sm-3 bold">Street/Area2</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="Area2" placeholder="Street/Area2" ng-model="PermanentCollection.Street2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="City" class="control-label col-sm-3 bold">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="City" placeholder="City" ng-model="PermanentCollection.City">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="District" class="control-label col-sm-3 bold">District</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="District" placeholder="District" ng-model="PermanentCollection.District">
+                                    </div>
+
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="PinCode" class="control-label col-sm-3 bold">PinCode</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="PinCode" placeholder="PinCode" ng-model="PermanentCollection.PinCode">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Country" class="control-label col-sm-3 bold">Country</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" ng-model="PermanentCollection.CountryId" ng-change="GetPermanentSelectedStates(PermanentCollection.CountryId)">
+                                            <option ng-repeat="country in countiresCollection" ng-value="country.Id">{{country.DisplayText}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="State" class="control-label col-sm-3 bold">State</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" ng-model="PermanentCollection.StateId">
+                                            <option ng-repeat="state in permanentSateCollection" ng-value="state.Id">{{state.DisplayText}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Home-Phone" class="control-label col-sm-3 bold">Home Phone</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="HomePhone" placeholder="Home Phone" ng-model="PermanentCollection.HomePhone">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="savePermanaentAddressDetails(PermanentCollection)">Save changes</button>
                 </div>
             </div>
         </div>

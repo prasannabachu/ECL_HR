@@ -51,6 +51,7 @@ CREATE TABLE [dbo].[Dropdown](
 	[DisplayText] [varchar](250) NULL
 ) ON [PRIMARY]
 
+alter table dropdown add ParentID int
 --Drop table EmpLanguage
 
 Create Table EmpLanguage(
