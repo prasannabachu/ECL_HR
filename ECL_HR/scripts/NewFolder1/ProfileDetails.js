@@ -99,7 +99,8 @@
         $http({
             method: 'post',
             url: '/profile/saveFamilyDetailsTables',
-            data: $scope.familyDetails
+            data: $scope.familyDetails,
+            
         }).then(function (success) {
 
 
@@ -132,6 +133,11 @@
 
         });
     }
+    $scope.familygridDoubleClick = function (gridData) {
+        $('#exampleModal').modal('show');
+        $scope.family_click_data = gridData;
+    }
+
 
     $scope.getStates = function () {
         

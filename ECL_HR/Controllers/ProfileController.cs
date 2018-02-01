@@ -137,80 +137,59 @@ namespace ECL_HR.Controllers
             return JSONString;
         }
 
-        #region Communication
-
-        public string getCommunicationDetails(string Type)
-        {
-            string JSONString = string.Empty;
-            
-            using (SqlCommand cmd = new SqlCommand("USP_GET_COMMUNICATIONDETAILS", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("pEmpID", 1);
-                cmd.Parameters.AddWithValue("pType", Type);
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                JSONString = JsonConvert.SerializeObject(dt);
-            }
-            return JSONString;
-        }
-        public string getStatesforselectedCountry(int selectedvalue)
-        {
-            string JSONString = string.Empty;
-            using (SqlCommand cmd = new SqlCommand("USP_GET_DROPDOWN_DETAILS", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("pITEM", "State");
-                cmd.Parameters.AddWithValue("pParentID", selectedvalue);
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                JSONString = JsonConvert.SerializeObject(dt);
-            }
-            return JSONString;
-        }
-
-        [HttpPost]
-        public string saveCommunicationDetails(communicationDetailsModel obj,string Type)
-        {
-            int empID;
-            string JSONString = string.Empty;
-            using (SqlCommand com = new SqlCommand("USP_SAVE_COMMUNICATIONINFO", con))
-            {
-                if (obj.EmpId == 0)
-                {
-                    empID = 1;
-                }
-                else
-                {
-                    empID = obj.EmpId;
-                }
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("pId", obj.Id);
-                com.Parameters.AddWithValue("pEmpId", empID);
-                com.Parameters.AddWithValue("pHouseNo", ((object)obj.HouseNo) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pStreet1", ((object)obj.Street1) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pStreet2", ((object)obj.Street2) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pCountryId", obj.CountryId);
-                com.Parameters.AddWithValue("pStateId", obj.StateId);
-                com.Parameters.AddWithValue("pCity", ((object)obj.City) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pDistrict", ((object)obj.District) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pPinCode", ((object)obj.PinCode) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pHomePhone", ((object)obj.HomePhone) ?? DBNull.Value);
-                com.Parameters.AddWithValue("pType", ((object)obj.Type) ?? Type);
-                con.Open();
-                com.ExecuteNonQuery();
-                return JSONString;
-            }
-        }
-
-        #endregion Communication
+       
     }
 }
+public class communicationDetailsModel
+{
+    public int Id { get; set; }
+    public int EmpId { get; set; }
+    public string HouseNo { get; set; }
+    public string Street1 { get; set; }
+    public string Street2 { get; set; }
+    public int CountryId { get; set; }
+    public int StateId { get; set; }
+    public string City { get; set; }
+    public string District { get; set; }
+    public string PinCode { get; set; }
+    public string HomePhone { get; set; }
+    public string Type { get; set; }
 
+}
+public class PersonalDetailsModel
+{
+    public string FullName { set; get; }
+    public string id { set; get; }
+    //public  string FullName;
+    public string DOB { set; get; }
+    public string GENDER { set; get; }
+    public string MaritalStatus { set; get; }
+    public string Nationality { set; get; }
+    public string Gender_id { set; get; }
+    public string Marital_id { set; get; }
+    public string BloodGrp_id { get; set; }
+    public string Natioanality_id { get; set; }
+}
+public class PersonalFamilyDetails
+{
+    public string Id { set; get; }
+    public string firstname { set; get; }
+    public string middlename { set; get; }
+    public string lastname { set; get; }
+    public string dateofbirth { set; get; }
+    public string age { set; get; }
+    public string bloodgroup_id { set; get; }
+    public string gender_id { set; get; }
+    public string relation_id { set; get; }
+    public string birthplace { set; get; }
+    public string occupation_id { set; get; }
+    public string Isdependent { set; get; }
+    public string Ismediclaim { set; get; }
+    public string country_of_birth_id { set; get; }
+    public string nationality_id { set; get; }
+    public string aadhaar { set; get; }
+    public string EmpId { set; get; }
+}
 
 
 

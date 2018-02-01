@@ -18,6 +18,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-highlight">
                             <thead>
+                                <tr>
                             <th>Name</th>
                             <th>Relation</th>
                             <th>Gender</th>
@@ -27,9 +28,10 @@
                             <th>Occupation</th>
                             <th>Med.Insurance</th>
                             <th>AadharNumber</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="familydetails in familyDetailsGridCollection">
+                                <tr ng-repeat="familydetails in familyDetailsGridCollection" ng-dblclick="familygridDoubleClick(familydetails)">
                                     <td>{{familydetails.firstname + familydetails.lastname }}</td>
                                     <td>{{familydetails.relation}}</td>
                                     <td>{{familydetails.gender}}</td>
@@ -108,37 +110,36 @@
             </div>
         </div>
     </div>
-</div>
+    @*Modal*@
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Dependent Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-@*Modal*@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Dependent Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12">
-                        <div class="form-horizontal">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="House-No" class="control-label col-sm-4 col-md-5 ">FirstName</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.firstname" placeholder="FirstName">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="House-No" class="control-label col-sm-4 col-md-5 ">FirstName</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" placeholder="FirstName" ng-model="family_click_data.firstname">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="House-No" class="control-label col-sm-4 col-md-5 ">Middle Name</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.middlename" placeholder="Middle Name">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="House-No" class="control-label col-sm-4 col-md-5 ">Middle Name</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.middlename" placeholder="Middle Name">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -209,14 +210,15 @@
                                         <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Occupation</label>
                                         <div class="col-sm-8 col-md-7  nopadding">
                                             <input type="text" class="form-control" ng-model="familydata.occupation" placeholder="Occupation">
+
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Dependent</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.dependent" placeholder="Dependent">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Dependent</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.Isdependent" placeholder="Dependent">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -238,32 +240,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Nationality</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.nationality" placeholder="Nationality">
-                                        </div>
+                            </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	Aadhaar No.</label>
-                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.aadharnumber" placeholder="AadhaarNumber">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">	Aadhaar No.</label>
+                                            <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                                <input type="text" class="form-control" ng-model="family_click_data.aadhaar" placeholder="AadhaarNumber">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
