@@ -51,6 +51,7 @@ namespace ECL_HR.Controllers
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataTable dt2 = new DataTable();
                 da2.Fill(dt2);
+                con.Close();
                 JSONString = JsonConvert.SerializeObject(dt2);
 
             }
@@ -66,6 +67,7 @@ namespace ECL_HR.Controllers
                 SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
                 DataTable dt2 = new DataTable();
                 da2.Fill(dt2);
+                con.Close();
                 JSONString = JsonConvert.SerializeObject(dt2);
 
             }
@@ -82,6 +84,7 @@ namespace ECL_HR.Controllers
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
                 DataTable dt1 = new DataTable();
                 da1.Fill(dt1);
+                con.Close();
                 JSONString = JsonConvert.SerializeObject(dt1);
             }
             return JSONString;
@@ -99,6 +102,7 @@ namespace ECL_HR.Controllers
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+                con.Close();
                 JSONString = JsonConvert.SerializeObject(dt);
             }
             return JSONString;
@@ -118,6 +122,7 @@ namespace ECL_HR.Controllers
             com.Parameters.AddWithValue("@pNationality", obj.Natioanality_id);
             con.Open();
             com.ExecuteNonQuery();
+            con.Close();
             return JSONString;
         }
 
@@ -133,12 +138,86 @@ namespace ECL_HR.Controllers
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dtDdlData = new DataTable();
                 da.Fill(dtDdlData);
+                con.Close();
                 JSONString = JsonConvert.SerializeObject(dtDdlData);
             }
             return JSONString;
         }
 
-       
+        #region Communication
+
+        public string getCommunicationDetails(string Type)
+        {
+            string JSONString = string.Empty;
+
+            using (SqlCommand cmd = new SqlCommand("USP_GET_COMMUNICATIONDETAILS", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("pEmpID", 1);
+                cmd.Parameters.AddWithValue("pType", Type);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Close();
+                JSONString = JsonConvert.SerializeObject(dt);
+            }
+            return JSONString;
+        }
+        public string getStatesforselectedCountry(int selectedvalue)
+        {
+            string JSONString = string.Empty;
+            using (SqlCommand cmd = new SqlCommand("USP_GET_DROPDOWN_DETAILS", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("pITEM", "State");
+                cmd.Parameters.AddWithValue("pParentID", selectedvalue);
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                con.Close();
+                JSONString = JsonConvert.SerializeObject(dt);
+            }
+            return JSONString;
+        }
+
+        [HttpPost]
+        public string saveCommunicationDetails(communicationDetailsModel obj, string Type)
+        {
+            int empID;
+            string JSONString = string.Empty;
+            using (SqlCommand com = new SqlCommand("USP_SAVE_COMMUNICATIONINFO", con))
+            {
+                if (obj.EmpId == 0)
+                {
+                    empID = 1;
+                }
+                else
+                {
+                    empID = obj.EmpId;
+                }
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("pId", obj.Id);
+                com.Parameters.AddWithValue("pEmpId", empID);
+                com.Parameters.AddWithValue("pHouseNo", ((object)obj.HouseNo) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pStreet1", ((object)obj.Street1) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pStreet2", ((object)obj.Street2) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pCountryId", obj.CountryId);
+                com.Parameters.AddWithValue("pStateId", obj.StateId);
+                com.Parameters.AddWithValue("pCity", ((object)obj.City) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pDistrict", ((object)obj.District) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pPinCode", ((object)obj.PinCode) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pHomePhone", ((object)obj.HomePhone) ?? DBNull.Value);
+                com.Parameters.AddWithValue("pType", ((object)obj.Type) ?? Type);
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
+                return JSONString;
+            }
+        }
+
+        #endregion Communication
     }
 }
 public class PersonalFamilyDetails

@@ -18,8 +18,8 @@ namespace ECL_HR.Controllers
         {
             SqlCommand com = new SqlCommand("usp_user_login",con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@code", us.Code);
-            com.Parameters.AddWithValue("@password" ,us.EmpPassword);
+            com.Parameters.AddWithValue("code", us.Code);
+            com.Parameters.AddWithValue("password" ,us.EmpPassword);
             SqlParameter oblogin = new SqlParameter();
             oblogin.ParameterName = "@Isvalid";
             oblogin.Direction = ParameterDirection.Output;

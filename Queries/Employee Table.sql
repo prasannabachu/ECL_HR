@@ -22,6 +22,8 @@ CREATE TABLE [dbo].[Employee](
 	[Location] int NULL
 ) ON [PRIMARY]
 
+alter table [dbo].[Employee] add EmpPassword varchar(100)
+
 
 --drop table Address
 CREATE TABLE [dbo].[Address](
