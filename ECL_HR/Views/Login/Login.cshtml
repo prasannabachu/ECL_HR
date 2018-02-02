@@ -1,0 +1,39 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Styles/StyleSheet1.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/scripts/module.js"></script>
+    <script src="~/scripts/NewFolder1/particles.js"></script>
+    <script src="~/scripts/NewFolder1/login.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="LoginController">
+    <div> 
+        <div class="container">
+            <div id="login-box">
+                 <div class="logo">
+                    <img src="https://www.crowdrise.com/v2/photo/file/member/3429503" class="img img-responsive img-circle center-block" />
+                    <h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+                </div><!-- /.logo -->
+                <div class="controls">
+                    <input type="text" name="username" placeholder="Username" class="form-control" ng-model="userController.Code" />
+                    <input type="text" name="username" placeholder="Password" class="form-control" ng-model="userController.EmpPassword" />
+                    <button type="button" class="btn btn-default btn-block btn-custom" value="{{btntext}}" ng-click="login()">Login</button>
+                    <span class="pull-right">forget password</span>
+                </div><!-- /.controls -->
+            </div><!-- /#login-box -->
+        </div><!-- /.container -->
+        <div id="particles-js"></div>
+        <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>-->
+    </div>
+</body>
+</html>

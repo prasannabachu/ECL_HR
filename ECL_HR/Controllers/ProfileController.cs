@@ -1,4 +1,5 @@
-﻿using ECL_HR.Models;
+﻿
+using ECL_HR.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -139,36 +140,6 @@ namespace ECL_HR.Controllers
 
        
     }
-}
-public class communicationDetailsModel
-{
-    public int Id { get; set; }
-    public int EmpId { get; set; }
-    public string HouseNo { get; set; }
-    public string Street1 { get; set; }
-    public string Street2 { get; set; }
-    public int CountryId { get; set; }
-    public int StateId { get; set; }
-    public string City { get; set; }
-    public string District { get; set; }
-    public string PinCode { get; set; }
-    public string HomePhone { get; set; }
-    public string Type { get; set; }
-
-}
-public class PersonalDetailsModel
-{
-    public string FullName { set; get; }
-    public string id { set; get; }
-    //public  string FullName;
-    public string DOB { set; get; }
-    public string GENDER { set; get; }
-    public string MaritalStatus { set; get; }
-    public string Nationality { set; get; }
-    public string Gender_id { set; get; }
-    public string Marital_id { set; get; }
-    public string BloodGrp_id { get; set; }
-    public string Natioanality_id { get; set; }
 }
 public class PersonalFamilyDetails
 {

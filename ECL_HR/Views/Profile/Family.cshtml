@@ -110,7 +110,6 @@
             </div>
         </div>
     </div>
-    @*Modal*@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -130,7 +129,7 @@
                                         <div class="form-group">
                                             <label for="House-No" class="control-label col-sm-4 col-md-5 ">FirstName</label>
                                             <div class="col-sm-8 col-md-7  nopadding">
-                                                <input type="text" class="form-control" placeholder="FirstName" ng-model="family_click_data.firstname">
+                                                <input type="text" class="form-control" ng-model="family_click_data.firstname" placeholder="FirstName">
                                             </div>
                                         </div>
                                     </div>
@@ -142,75 +141,74 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="House-No" class="control-label  col-sm-4 col-md-5  ">Last Name*</label>
-                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.lastname" placeholder="Last Name">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="House-No" class="control-label  col-sm-4 col-md-5  ">Last Name*</label>
+                                            <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                                <input type="text" class="form-control" ng-model="family_click_data.lastname" placeholder="Last Name">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">DOB</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.dateofbirth" placeholder="DateOfBirth">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">DOB</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.dateofbirth" placeholder="DateOfBirth">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Age</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.age" placeholder="Age">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Blood Group</label>
+                                            <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                                <input type="text" class="form-control" ng-model="family_click_data.bloodgroup" placeholder="Blood Group">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Age</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.age" placeholder="Age">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Gender</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.gender" placeholder="Gender">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Relation</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.relation" placeholder="Relation">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Birth Place</label>
+                                            <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                                <input type="text" class="form-control" ng-model="family_click_data.birthplace" placeholder="Birth Place">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Blood Group</label>
-                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.bloodgroup" placeholder="Blood Group">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Gender</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.gender" placeholder="Gender">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Relation</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.relation" placeholder="Relation">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Birth Place</label>
-                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.birthplace" placeholder="Birth Place">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Occupation</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.occupation" placeholder="Occupation">
-
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Occupation</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.occupation" placeholder="Occupation">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 ">
@@ -221,26 +219,31 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Mediclaim*</label>
-                                        <div class="col-sm-8 col-md-7  nopaddingLEFT">
-                                            <input type="text" class="form-control" ng-model="familydata.mediclaim" placeholder="Mediclaim">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Mediclaim*</label>
+                                            <div class="col-sm-8 col-md-7  nopaddingLEFT">
+                                                <input type="text" class="form-control" ng-model="family_click_data.Ismediclaim" placeholder="Mediclaim">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-4 ">
-                                    <div class="form-group">
-                                        <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Country Of Birth</label>
-                                        <div class="col-sm-8 col-md-7  nopadding">
-                                            <input type="text" class="form-control" ng-model="familydata.countryofbirth" placeholder="Country of Birth">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Country Of Birth</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.country_of_birth" placeholder="Country of Birth">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                    <div class="col-sm-12 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="Area1" class="control-label  col-sm-4 col-md-5  ">Nationality</label>
+                                            <div class="col-sm-8 col-md-7  nopadding">
+                                                <input type="text" class="form-control" ng-model="family_click_data.nationality" placeholder="Nationality">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 ">
                                         <div class="form-group">
@@ -263,6 +266,4 @@
             </div>
         </div>
     </div>
-</div>
-
-
+    </div>
