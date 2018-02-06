@@ -11,11 +11,11 @@ namespace ECL_HR.Controllers
     public class LoginController : Controller
     {
         ECL_HR.Controllers.DBController dblayer = new ECL_HR.Controllers.DBController();
-        // GET: Login
-
         
+        // GET: Login
         public ActionResult Login()
         {
+            FormsAuthentication.SignOut();
             return View();
         }
 
