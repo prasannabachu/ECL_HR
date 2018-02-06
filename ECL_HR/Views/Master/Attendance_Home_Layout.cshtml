@@ -2,9 +2,8 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Styles/global.css" rel="stylesheet" />
@@ -16,19 +15,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="~/scripts/angular.min.js"></script>
     <script src="~/scripts/module.js"></script>
-    <script src="~/scripts/NewFolder1/UserDetails.js"></script>
-    <script src="~/scripts/NewFolder1/ProfileDetails.js"></script>
-    <script src="~/scripts/NewFolder1/LogOut.js"></script>
-    @*<script src="~/scripts/NewFolder1/languageDetails.js"></script>*@
-
-    @*<script src="~/scripts/NewFolder1/ProfileDetails.js"></script>*@
+    <script src="~/Calender_Bootstrap/calendar.js"></script>
+    <script src="~/Calender_Bootstrap/fullcalendar.min.js"></script>
+    <script src="~/Calender_Bootstrap/gcal.min.js"></script>
+    <link href="~/Calender_Bootstrap/fullcalendar.min.css" rel="stylesheet" />
 </head>
-<body ng-app="myApp">
+<body ng-app="uiroute">
 
     <nav class="navbar nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    
+                    </button>
+                    
+                </div>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active">@Html.ActionLink("Home", "home", "Home")</li>
@@ -43,7 +47,7 @@
                 <li><a href="#">Page 2</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-controller="LogoutController"><a ng-click="LogoutRequest()"><span class="glyphicon glyphicon-log-in"></span> LogOut </a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="/action_page.php">
                 <div class="input-group">
@@ -60,27 +64,28 @@
     </nav>
 
 
-    <div class="overlay">
-        <div class="abs-center overlay-card">
-            <div class="close">X</div>
-            <div class="floated overlay-image">
-                <div class="abs-center post-image"></div>
+    <div class="container-fluid paddingTop">
+        <div class="row">
+
+            <h1>Attendance</h1>
+
+            <div class="col-sm-3">
+                <div class="nav-side-menu">
+                    <ul class="side_menu" role="tablist">
+                        <li role="presentation" class="active"><a href="/Profile/Profile">Communication</a></li>
+                        <li role="presentation"><a href="/Profile/Personal">Personal</a></li>
+                        <li role="presentation"><a href="/Profile/Family">Family / Dependent Details</a></li>
+                        <li role="presentation"><a href="/Profile/Language">Language</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="floated overlay-desc">
-                <div class="rela-block desc-title"></div>
-                <div class="rela-block desc-author"></div>
-                <div class="rela-block desc-desc"></div>
+            <div class="col-sm-9">
+                <div>
+                    @RenderBody()
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-
-        @RenderBody()
-
-
-    </div>
-
     <div class="footer col-md-12">
         @*<p>FOOTER</p>*@
         <p>Classic deluxe custom designer luxury prestige high-quality premium select gourmet pocket pencil sharpener.</p>

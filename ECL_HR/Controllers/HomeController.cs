@@ -11,10 +11,12 @@ using System.Data;
 
 namespace ECL_HR.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+        
         public ActionResult home()
         {
             //getEmployeeData();

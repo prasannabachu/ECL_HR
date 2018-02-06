@@ -17,6 +17,7 @@ namespace ECL_HR
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+                //,constraints: new { controller = @"(Account|Manage|Home)" }
             );
         }
     }

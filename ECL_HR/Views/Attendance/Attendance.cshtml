@@ -1,9 +1,25 @@
 ﻿
 @{
     ViewBag.Title = "Attendance";
-    Layout = "~/Views/Master/main_Layout.cshtml";
+    Layout = "~/Views/Master/Attendance_Home_Layout.cshtml";
 }
-<div class="container">
-    <h2>Attendance</h2>
 
+
+<div ng-controller="CalendarController">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-switch mb btn-switch-purple">
+                        <button ng-click="toggleEventSource()"> Load Json</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div ng-model="eventSources"
+                 calendar="myCalendar"
+                 ui-calendar="uiConfig.calendar" class="calendar"></div>
+        </div>
     </div>
+</div>

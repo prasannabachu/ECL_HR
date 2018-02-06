@@ -13,11 +13,12 @@ using System.Web.Mvc;
 
 namespace ECL_HR.Controllers
 {
-
+    [Authorize]
     public class ProfileController : Controller
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
         // GET: Profile
+        
         public ActionResult Profile()
         {
             //getCommunicationDetails();
