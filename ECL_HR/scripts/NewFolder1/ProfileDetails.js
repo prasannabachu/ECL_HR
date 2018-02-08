@@ -14,7 +14,8 @@
         this.getCountry();
         this.getStates();        
         this.getPermanentStates();
-        this.familyDetailsGridData();    };
+        this.familyDetailsGridData();
+    };
 
     $scope.getPresentAddressData = function () {
 

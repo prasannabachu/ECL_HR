@@ -1,9 +1,37 @@
 ﻿
 @{
     ViewBag.Title = "Leave";
-    Layout = "~/Views/Master/main_Layout.cshtml";
+    Layout = "~/Views/Master/Leave_Home_Layout.cshtml";
 }
-<div class="container">
-    <h2>Leave</h2>
+<div class="row">
+    <div class="col-md-6">
+        <fieldset>
+            <legend>Yearly</legend>
+            <div ng-controller="DoughnutCtrl">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="data" chart-labels="labels"></canvas>
+            </div>
+        </fieldset>
     </div>
+    <div class="col-md-6">
+        <div ng-controller="MixedChartCtrl">
+            <fieldset>
+                <legend>Monthly</legend>
+                <canvas id="base" class="chart-bar"
+                        chart-data="data" chart-labels="labels" chart-colors="colors"
+                        chart-dataset-override="datasetOverride"></canvas> 
+            </fieldset>
+        </div>
+    </div>
+    @*<div class="col-md-6">
+        <div ng-controller="RadarCtrl">
+            <fieldset>
+                <legend>Monthly</legend>
+                <canvas id="radar" class="chart chart-radar"
+                        chart-data="data" chart-options="options" chart-labels="labels"></canvas>
+            </fieldset>
+        </div>
+    </div>*@
 
+
+</div>

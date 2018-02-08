@@ -1,0 +1,19 @@
+[
+
+  {
+    "type": "party",
+    "title": "Lunch ",
+    "start": "02/01/2018",
+    "end": "02/01/2018",
+    "color": "green",
+    "allDay": "false"
+  },
+  {
+    "type": "link",
+    "title": "google.com",
+    "start": "02/02/2018",
+    "end": "02/02/2018",
+    "color": "red",
+    "url": "http://google.com/"
+  }
+]
