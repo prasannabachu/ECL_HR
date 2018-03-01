@@ -609,3 +609,99 @@ INSERT INTO [dbo].[Dropdown]([Item],[Value],[DisplayText])
 INSERT INTO [dbo].[FamilyDetails]([firstname],[middlename],[lastname],[dateofbirth],[age],[bloodgroup_id],[gender_id],[relation_id],[birthplace]
            ,[occupation_id],[Isdependent],[Ismediclaim],[country_of_birth_id],[nationality_id],[aadhaar])
      VALUES('Prasanna','VLNK','Bachu','1995-05-24',23,24,17,235,'Guntur',229,1,0,34,11,'450905060504')
+
+CREATE TABLE ATTENDANCE(
+ID INT IDENTITY(1,1) NOT NULL,
+EMPID INT NOT NULL,
+ATTENDANCE_TIME TIME NOT NULL,
+ATTENDANCE_DATE DATE NOT NULL,
+CREATEDDATE DATETIME
+)
+
+
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','02/01/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'13:32','02/01/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'16:50','02/01/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'20:43','02/01/2018',getdate())
+
+
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','02/06/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'13:32','02/06/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'17:50','02/06/2018',getdate())
+
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','01/02/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'13:32','01/02/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'23:50','01/02/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','01/10/2018',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'17:32','01/10/2018',getdate())
+
+
+
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','01/05/2017',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'13:32','01/05/2017',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'23:50','01/05/2017',getdate())
+
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'11:00','06/07/2017',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'13:32','06/07/2017',getdate())
+
+insert into ATTENDANCE(EMPID,ATTENDANCE_TIME,ATTENDANCE_DATE,CREATEDDATE)
+values(1,'23:50','06/07/2017',getdate())
+
+Create Table EmpLeaves(
+Id int identity(1,1) not null,
+Leave_Date Date Not Null,
+Leave_Type int not null,
+Applied_Date DateTime,
+Reason Varchar(500),
+Status int,
+Approved_By int
+)
+
+GO
+
+INSERT INTO [dbo].[EmpLeaves]([Leave_Date],[Leave_Type],[Applied_Date],[Reason],[Status],[Approved_By])
+     VALUES
+           ('01/10/2018',1,'01/01/2018','Fever',1,1)
+GO
+
+INSERT INTO [dbo].[EmpLeaves]([Leave_Date],[Leave_Type],[Applied_Date],[Reason],[Status],[Approved_By])
+     VALUES
+           ('01/19/2018',1,'01/01/2018','Stomach Ache',1,1)
+
+INSERT INTO [dbo].[EmpLeaves]([Leave_Date],[Leave_Type],[Applied_Date],[Reason],[Status],[Approved_By])
+     VALUES
+           ('02/06/2018',1,'02/01/2018','Head Ache',1,1)

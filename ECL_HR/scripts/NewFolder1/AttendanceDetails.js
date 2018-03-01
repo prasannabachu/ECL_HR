@@ -15,13 +15,13 @@ var uiroute = angular
                 //color: 'green',
                 textColor: '#fff',
                 className: ['fc-id-2'],
-                //height:'35px',
                 events: []
             };
 
             calEventsExt.events = angular.copy(data);
             $scope.eventSources.push(calEventsExt);
 
+            if (!event.start.isBetween(view.intervalStart - 1, view.intervalEnd)) { return false; }
             for (var i = 0; i < $scope.eventSources[1].events.length; i++) {
                 var event = $scope.eventSources[1].events[i];
                 var eventDate = moment(event.start).format("YYYY-MM-DD");
@@ -36,8 +36,6 @@ var uiroute = angular
 
         });
         // get Attendance data from database
-
-        //$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
         $scope.today = new Date();
         var date = new Date();
@@ -64,14 +62,14 @@ var uiroute = angular
 
         $scope.uiConfig = {
             calendar: {
-                height: 350,
+                height: 368,
                 editable: false,
                 default:1,
                 header: {
                     //left: 'month,basicWeek,basicDay',
-                    left: '',
-                    center: 'prevYear, prev, title, next, nextYear',
-                    right: 'today'
+                    left: 'title',
+                    center: '',
+                    right: 'prevYear,prev,next,nextYear, today'
                     //right: 'today'
                 },
                 defaultView: 'month',
@@ -82,8 +80,24 @@ var uiroute = angular
                 selectable: false,
                 selectHelper: false,
                 unselectAuto: false,
+                eventRender: function (event, element, view) {
+                    if (!event.start.isBetween(view.intervalStart-1, view.intervalEnd)) { return false; }
+                    var eventDate = moment(event.start).format("YYYY-MM-DD");
+                    //var calendarDate = $('#activitiesCalendar').fullCalendar('getDate');
+                    var bgcolor = event.color;
+                    var tds = $("td.fc-day[data-date='" + eventDate + "']");
+                    for (var j = 0; j < tds.length; j++) {
+                        var td = tds[j];
+                        $(td).css("background", bgcolor);
+                    };
+                    
+                },
+                viewRender: function (view, element) {
+                    var v = view;
+                }
                 //dayRender: function (date, cell) {
-                //    $r = $scope.getDateInfo(date);
+                //    //$r = $scope.getDateInfo(date);
+                //    var $r = moment(date).format("YYYY-MM-DD");
                 //    if ($r) {
                 //        cell.css("background-color", "#ccf3ff");
                 //    }
@@ -137,7 +151,12 @@ var uiroute = angular
         };
 
         $scope.toggleEventSource = function () {
-
            
-       };
+        };
+        $scope.$on('$ionicView.enter', function() { 
+            
+        });
+        //$scope.$ionic.DomUtil.ready(function () {
+        //    uiCalendarConfig.calendars['myCalendar'].fullCalendar('changeView', 'month');
+        //});
 }]);
